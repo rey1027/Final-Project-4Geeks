@@ -7,7 +7,7 @@ from flask_migrate import Migrate
 from flask_swagger import swagger
 from flask_cors import CORS
 from api.utils import APIException, generate_sitemap
-from api.models import db
+from api.models import *
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
@@ -28,6 +28,7 @@ else:
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db, compare_type = True)
+
 db.init_app(app)
 
 # Allow CORS requests to this API
@@ -62,6 +63,14 @@ def serve_any_other_file(path):
     response = send_from_directory(static_file_dir, path)
     response.cache_control.max_age = 0 # avoid cache memory
     return response
+
+@app.route('/tratamientos', methods=['GET'])
+def obtener_tratamientos():
+    search = Tratamientos.query.all()  
+    search_serialize = list(map(lambda x: x.serialize(), search)) # search.map((item)=>{item.serialize()})
+    
+    return jsonify(search_serialize), 200
+   
 
 
 # this only runs if `$ python src/main.py` is executed
