@@ -1,3 +1,24 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+
+
+.chica{
+    width: 400px;
+    height: 500px;
+    margin-top: 5%;
+    
+}
+
+.inicio{
+    background: no-repeat center/150% url("https://image.jimcdn.com/app/cms/image/transf/none/path/s0c0a61a9b8fd373a/backgroundarea/i05bbc3b2ab70103d/version/1573384974/image.jpg");
+    z-index: 100;
+    background-size: cover;
+    margin-top: 1%;
+}
+
+.contenedor{
+    background: #6eb9af;
+    height: 350px;
+    margin: 5%;
+}
