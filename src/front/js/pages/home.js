@@ -16,13 +16,13 @@ export const Home = () => {
                 <strong>SOMOS</strong>
               </h1>
             </p>
-            <p>
+            <h5>
               La clínica dental Smile es un centro especializado en brindar
               servicios odontológicos de excelencia y atención personalizada.
               Nuestro equipo de profesionales altamente capacitados se dedica a
               mejorar y mantener la salud bucal de nuestros pacientes, con un
               enfoque en lograr sonrisas radiantes y saludables.
-            </p>
+            </h5>
           </div>
           <div className="col-5">
             <img
@@ -33,19 +33,26 @@ export const Home = () => {
         </div>
         <div className="contenedor shadow-lg">
           <div className="row">
+            <div className="col-1 p-4 text-white">
+              <h1>+10</h1>
+              <h5>Especialidades</h5>
+            </div>
             <div className="col-6 text-start">
-              <p>1</p>
+              <div>
+                <img src="https://o.remove.bg/downloads/30945718-1f47-4e5e-a8bb-aaf1dd983978/Imagen-removebg-preview.png" />
+              </div>
             </div>
-            <div className="col-6 text-center">
-              <p>2</p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-6 text-start">
-              <p>3</p>
-            </div>
-            <div className="col-6 text-center">
-              <p>4</p>
+            <div className="col-5">
+              <div className="texto mt-5 text-md-start p-5 text-white fw-bol">
+                <h4>
+                  {" "}
+                  Aquí encontrarás una amplia gama de servicios diseñados para
+                  cuidar y mejorar tu salud bucal.
+                </h4>
+                <a href="#" class=" boton1 btn btn-light mt-4">
+                  Learn more
+                </a>
+              </div>
             </div>
           </div>
         </div>

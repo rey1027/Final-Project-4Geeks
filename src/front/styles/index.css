@@ -18,7 +18,13 @@
 }
 
 .contenedor{
+    background: #486989;
+    height: 340px;
+    margin: 10%;
+}
+
+.boton1{
+    background-color: #F0EFE2;
     background: #6eb9af;
-    height: 350px;
-    margin: 5%;
+    border-color: #F0EFE2;
 }
