@@ -11,7 +11,6 @@ class User(db.Model):
     edad = db.Column(db.Integer, unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
-    rol = db.Column(db.String(5), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
 
 
@@ -21,11 +20,10 @@ class User(db.Model):
     def serialize(self):
         return {
             "id": self.id,
-            "nombre": self.nombre_completo,
+            "nombre_completo": self.nombre_completo,
             "cedula": self.cedula,
             "edad": self.edad,
             "email": self.email,
-            "rol": self.rol,
             "is_active": self.is_active
             # do not serialize the password, its a security breach
         }
@@ -86,8 +84,8 @@ class Citas(db.Model):
     __tablename__ = 'citas'
     id = db.Column(db.Integer, primary_key=True)
     nombre_paciente = db.Column(db.String(50), unique=False, nullable=False)
-    fecha = db.Column(db.Integer, unique=True, nullable=False)
-    hora = db.Column(db.Integer, unique=True, nullable=False)
+    fecha = db.Column(db.Date, unique=True, nullable=False)
+    hora = db.Column(db.Time, unique=True, nullable=False)
     especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
     tratamientos_id = db.Column(db.Integer, db.ForeignKey('tratamientos.id'))
     especialistas_id = db.Column(db.Integer, db.ForeignKey('especialistas.id'))
