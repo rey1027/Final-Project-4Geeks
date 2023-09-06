@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
+import protesis from "../../img/protesis.png";
+import doc1 from "../../img/doc1.png";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
 
   return (
     <div className="container-fluid">
-      <div className="fondo inicio">
+      <div className=" inicio">
         <div className="row d-flex">
           <div className="col-7 mt-5 text-center">
             <p>
@@ -31,7 +32,7 @@ export const Home = () => {
             ></img>
           </div>
         </div>
-        <div className="contenedor shadow-lg">
+        <div className="contenedor d-flex shadow-lg align-items-center">
           <div className="row">
             <div className="col-1 p-4 text-white">
               <h1>+10</h1>
@@ -39,7 +40,7 @@ export const Home = () => {
             </div>
             <div className="col-6 text-start">
               <div>
-                <img src="https://o.remove.bg/downloads/30945718-1f47-4e5e-a8bb-aaf1dd983978/Imagen-removebg-preview.png" />
+                <img src={protesis} />
               </div>
             </div>
             <div className="col-5">
@@ -53,6 +54,16 @@ export const Home = () => {
                   Learn more
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container-fluid">
+        <div className="row doctora">
+          <div className="col-6">hola</div>
+          <div className="col-6">
+            <div>
+              <img src={doc1} />
             </div>
           </div>
         </div>
