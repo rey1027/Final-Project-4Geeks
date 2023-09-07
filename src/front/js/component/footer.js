@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import logo from "../../img/logo.png";
 
 export const Footer = () => (
   <footer className="container-fluid bg-light ">
     <div className="row mt-2 align-items-center ">
       <div className="col border-end">
-        <h2 className="text-center">LOGO</h2>
+        <div>
+          <img className="logo" src={logo} />
+        </div>
         <i class="fa-solid fa-phone"></i> +506 2266-9988
         <br />
         <i class="fa-solid fa-envelope"></i> info@clinicadentalsmile.com

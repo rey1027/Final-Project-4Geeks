@@ -1,7 +1,17 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+.logo{
+    width: 150px;
+    height: 100%;
+}
 
+.SOMOS{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .chica{
     width: 400px;
@@ -30,6 +40,25 @@
 }
 
 .doctora{
-    background: #9182C4 ;
-    height: 400px;
+    background-color: #816bd1 ;
+    
+}
+
+.doc1{
+    height: 600px;
+    width: 400px;
+}
+
+.d5{
+    height: 500px;
+    width: 500px;
+    margin-top: 180%;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
 }
