@@ -29,8 +29,13 @@
 
 .contenedor{
     background: #486989;
-    height: 340px;
+    height: auto;
     margin: 10%;
+}
+
+.protesis{
+    height: auto;
+    max-width: 90%;
 }
 
 .boton1{
@@ -40,7 +45,7 @@
 }
 
 .doctora{
-    background-color: #816bd1 ;
+    background-color: #8c8ef1;
     
 }
 
@@ -50,9 +55,9 @@
 }
 
 .d5{
-    height: 500px;
-    width: 500px;
-    margin-top: 180%;
+    height: auto;
+    max-width: auto;
+    margin-top: auto;
 }
 
 .texto{
@@ -60,5 +65,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 2%;
+    padding: 5%;
+}
+
+.especialidades{
+    background: no-repeat center/150% url("https://hendersondental.ca/wp-content/uploads/2019/11/Slide_Image_3.3.jpg");
+    z-index: 100;
+    background-size: cover;
+    margin-top: 1%;
+}
+
+.textoD{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    padding: 5%;
+}
+
+.solicitud{
+    background-color: #dbdbac;
 }
