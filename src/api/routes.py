@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint,current_app
-from api.models import db, User
+from api.models import db, User, Especialidad,Especialistas, Citas,Tratamientos
 from api.utils import generate_sitemap, APIException
 
 from flask_jwt_extended import create_access_token
@@ -84,7 +84,7 @@ def login():
     if user is None:
         raise APIException("Usuario no registrado", status_code=400)
 
-    coincidencia = current_app.bcrypt.check_password_hash(user.password,password) #si coincide, devuelve True
+    coincidencia = current_app.bcrypt.check_password_hash(user.password,password)
 
     if not coincidencia:
         raise APIException("Las credenciales son incorrectas", status_code=400)
