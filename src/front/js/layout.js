@@ -6,6 +6,7 @@ import { BackendURL } from "./component/backendURL";
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
+import { Ortodoncia } from "./pages/cardservices";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
