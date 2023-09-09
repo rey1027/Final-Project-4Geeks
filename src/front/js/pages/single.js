@@ -40,18 +40,19 @@ export const Single = props => {
           description="La endodoncia es un procedimiento odontológico especializado diseñado para tratar problemas..."
         />
         <ServiceCard
-          title="Chequeo Dental"
-          image={chequeo}
+          title="Odontopediatra"
+          image={Opediatra}
+          
           description="Un chequeo dental, también conocido como revisión dental o examen oral..."
         />
         <ServiceCard
-          title="Endodoncia"
-          image={endodoncia}
+          title="Ortodoncia"
+          image={ortodoncia}
           description="La endodoncia es un procedimiento odontológico especializado diseñado para tratar problemas..."
         />
         <ServiceCard
-          title="Chequeo Dental"
-          image={chequeo}
+          title="Limpieza Dental"
+          image={LimpiezaD}
           description="Un chequeo dental, también conocido como revisión dental o examen oral..."
         />
        
@@ -60,27 +61,27 @@ export const Single = props => {
 <div class="row row-cols-3 row-cols-md-3 g-3 justify-content-center align-items-center ">
 
     <ServiceCard
-          title="Chequeo Dental"
-          image={chequeo}
+          title="Implantes Dentales"
+          image={implanteD}
           description="Un chequeo dental, también conocido como revisión dental o examen oral..."
         />
         <ServiceCard
-          title="Endodoncia"
-          image={endodoncia}
+          title="Cirugia De Cordales"
+          image={extraccion}
           description="La endodoncia es un procedimiento odontológico especializado diseñado para tratar problemas..."
         />
         <ServiceCard
-          title="Chequeo Dental"
-          image={chequeo}
+          title="Periodoncia Dental"
+          image={periodoncia}
           description="Un chequeo dental, también conocido como revisión dental o examen oral..."
         />
         <ServiceCard
-          title="Endodoncia"
-          image={endodoncia}
+          title="Carillas-Resinas Dentales"
+          image={carillas}
           description="La endodoncia es un procedimiento odontológico especializado diseñado para tratar problemas..."
         /><ServiceCard
-        title="Chequeo Dental"
-        image={chequeo}
+        title="Medicos Especialistas"
+        image={especialista}
         description="Un chequeo dental, también conocido como revisión dental o examen oral..."
       />
       
