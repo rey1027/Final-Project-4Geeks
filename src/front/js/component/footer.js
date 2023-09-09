@@ -2,31 +2,43 @@ import React, { Component } from "react";
 import logo from "../../img/logo.png";
 
 export const Footer = () => (
-  <footer className="container-fluid bg-light ">
-    <div className="row mt-2 align-items-center ">
+  <footer className="container-fluid footerF">
+    <div className="row mt-2 align-items-center">
       <div className="col border-end">
         <div>
-          <img className="logo" src={logo} />
+          <img className="logo text-center" src={logo} />
         </div>
-        <i class="fa-solid fa-phone"></i> +506 2266-9988
+        <i class="fa-solid fa-phone"></i>
+        <h5 className="">Teléfono: +506 2266-9988</h5>
         <br />
-        <i class="fa-solid fa-envelope"></i> info@clinicadentalsmile.com
+        <i class="fa-solid fa-envelope"></i>{" "}
+        <h5 className=""> Email: info@clinicadentalsmile.com</h5>
         <p></p>
       </div>
       <div className="col border-end text-center">
         <br />
-        <i class="fa-solid fa-street-view"></i>
+        <h1 className="text-secondary">
+          <i class="fa-solid fa-street-view"></i>
+        </h1>
         <br />
         NUESTRAS OFICINAS
       </div>
-      <div className="col border-end text-center ">
-        <i class="fa-brands fa-facebook-f"></i>
+      <div className="text-secondary col border-end text-center">
+        <h4>
+          <i class="fa-brands fa-facebook-f"></i>
+        </h4>
         <br />
-        <i class="fa-brands fa-instagram"></i>
+        <h4>
+          <i class="fa-brands fa-instagram"></i>
+        </h4>
         <br />
-        <i class="fa-brands fa-tiktok"></i>
+        <h4>
+          <i class="fa-brands fa-tiktok"></i>
+        </h4>
         <br />
-        <i class="fa-brands fa-youtube"></i>
+        <h4>
+          <i class="fa-brands fa-youtube"></i>
+        </h4>
       </div>
     </div>
     <br />

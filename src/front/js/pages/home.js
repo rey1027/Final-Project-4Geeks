@@ -14,10 +14,10 @@ export const Home = () => {
       <div className=" inicio">
         <div className="row d-flex">
           <div className="col-lg-7 col-sm-12 SOMOS mt-5 text-center">
-            <p className="display-3">
+            <p className="fst-italic fs-1">
               <strong>SOMOS</strong>
             </p>
-            <h3>
+            <h3 className="p-5 descrip ">
               La clínica dental Smile es un centro especializado en brindar
               servicios odontológicos de excelencia y atención personalizada.
               Nuestro equipo de profesionales altamente capacitados se dedica a
@@ -32,6 +32,7 @@ export const Home = () => {
             ></img>
           </div>
         </div>
+
         <div className="contenedor d-flex shadow-lg align-items-center">
           <div className="row">
             <div className="col-lg-1 col-sm-12 p-4 text-white">
@@ -50,32 +51,69 @@ export const Home = () => {
                   Aquí encontrarás una amplia gama de servicios diseñados para
                   cuidar y mejorar tu salud bucal.
                 </h4>
-                <a href="#" class=" boton1 btn btn-light mt-4">
-                  Learn more
+                <a
+                  href="#"
+                  className="d-grid gap-2 col-4 boton1 btn btn-info mt-5"
+                >
+                  <h5 className="text-dark">Ver más</h5>
                 </a>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <div className="container-fluid">
+        <div className="row especialidades">
+          <div className="col-lg-6 col-sm-2 text-center mt-5">
+            <div></div>
+          </div>
+          <div className="col-lg-6 textoD text-dark col-sm-10 mt-5">
+            <p>
+              <h1 className="text-start mt-4">
+                <strong>Especialidades</strong>
+              </h1>
+            </p>
+            <div className="text-start fw-bol">
+              <h4>
+                Estamos encantados de invitarte a explorar nuestras
+                especialidades en el campo de la odontología. En nuestra
+                clínica, nos enorgullece ofrecer una amplia gama de servicios
+                especializados para satisfacer todas tus necesidades dentales.
+              </h4>
+              <a
+                href="#"
+                className="d-grid gap-2 col-4 boton3 btn btn-info mt-5"
+              >
+                <h5 className="text-dark">Ver más</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+
       <div className="container-fluid">
         <div className="row doctora">
           <div className="col-lg-6 col-sm-7 texto mt-5">
             <p>
-              <h1 className="text-start text-white mt-5">
+              <h1 className="text-start text-white">
                 <strong>Nuestros Especialistas</strong>
               </h1>
             </p>
             <div className="text-start text-white fw-bol">
               <h4>
                 ¡Te invitamos a descubrir a nuestros especialistas en
-                odontología! En nuestra clínica dental, contamos con un equipo
-                de profesionales altamente capacitados y especializados en
-                diversas áreas de la odontología. Están comprometidos con
-                brindar la mejor atención dental.
+                odontología!. Contamos con un equipo de profesionales altamente
+                capacitados y especializados en diversas áreas de la
+                odontología. Están comprometidos con brindar la mejor atención
+                dental.
               </h4>
-              <a href="#" class=" boton1 btn btn-light mt-4">
-                Learn more
+              <a
+                href="#"
+                className="d-grid gap-2 col-4 boton2 btn btn-info mt-5"
+              >
+                <h5 className="text-dark">Ver más</h5>
               </a>
             </div>
           </div>
@@ -87,59 +125,105 @@ export const Home = () => {
         </div>
       </div>
       <br />
+
       <div className="container-fluid">
-        <div className="row especialidades">
+        <div className="row solicitud">
           <div className="col-lg-6 col-sm-5 text-center mt-5">
-            <div></div>
+            <div>
+              <img className="d5" src={d5} />
+            </div>
+            <br />
           </div>
-          <div className="col-lg-6 textoD text-dark col-sm-7 mt-5">
+          <div className="col-lg-6 col-sm-7 p-5 mt-5">
             <p>
-              <h1 className="text-start mt-5">
-                <strong>Especialidades</strong>
+              <h1 className="text-start text-white mt-5">
+                <strong>Reservación de cita</strong>
               </h1>
             </p>
-            <div className="text-start fw-bol">
+            <div className="text-start text-white fw-bol mt-4">
               <h4>
-                Estamos encantados de invitarte a explorar nuestras
-                especialidades en el campo de la odontología. En nuestra
-                clínica, nos enorgullece ofrecer una amplia gama de servicios
-                especializados para satisfacer todas tus necesidades dentales.
+                En nombre de la clínica dental Smile, nos complace ofrecerte
+                nuestros servicios de atención dental de alta calidad. Si estás
+                buscando una cita para cuidar de tu salud bucal, te invitamos
+                cordialmente a programar una cita con nosotros.
               </h4>
-              <a href="#" class=" boton1 btn btn-light mt-4">
-                Learn more
+              <a
+                href="#"
+                className="d-grid gap-2 col-lg-4 col-sm-2  boton4 btn btn-info mt-5"
+              >
+                <h5 className="text-dark">Solicitud de cita</h5>
               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container-fluid mt-4 tecnologia">
+        <div className="text-center">
+          <h3 className="fw-bol text-white">Nuestra Tecnología</h3>
+        </div>
+        <div className="card-group mt-4">
+          <div className="card">
+            <img
+              src="https://i.pinimg.com/564x/66/ae/d2/66aed22db1ab48e9ad14bbdd4129b527.jpg"
+              className="card-img-top"
+              alt="..."
+            />
+            <div className="card-body">
+              <h5 className="card-title">Radiografía Digital</h5>
+              <p className="card-text">
+                La principal ventaja para el paciente es que la radiografía
+                digital requiere menor cantidad de exposición a los rayos X lo
+                que se traduce inmediatamente como menor radiación tanto para el
+                personal de la clínica como para el paciente.
+              </p>
+            </div>
+            <div className="card-footer">
+              <small className="text-muted">Solicite su cita</small>
+            </div>
+          </div>
+          <div className="card">
+            <img
+              src="https://i.pinimg.com/564x/e2/41/81/e241811d57f440de79aa1f1998c47c2c.jpg"
+              className="card-img-top"
+              alt="..."
+            />
+            <div className="card-body">
+              <h5 className="card-title">Laboratorio Dental</h5>
+              <p className="card-text">
+                El proceso de trabajo se lleva paso a paso desde el modelo en
+                yeso hasta la restauración final en porcelana en conjunto con
+                nuestros odontólogos, lo cual es crítico para asegurarle un
+                éxito a largo plazo de las restauraciones dentales.
+              </p>
+            </div>
+            <div className="card-footer">
+              <small className="text-muted">Solicite su cita</small>
+            </div>
+          </div>
+          <div className="card">
+            <img
+              src="https://i.pinimg.com/564x/6b/55/21/6b5521fda374ad49e41fb58357112d78.jpg"
+              className="card-img-top"
+              alt="..."
+            />
+            <div className="card-body">
+              <h5 className="card-title">Tomografía Dental</h5>
+              <p className="card-text">
+                Su uso resulta especialmente relevante al permitir detectar
+                otras lesiones que pueden pasar desapercibidas si se estudian
+                con técnicas radiográficas convencionales, y en el caso de que
+                se requiera colocar implantes, al permitir medir ancho, largo y
+                grosor del hueso donde irán colocado
+              </p>
+            </div>
+            <div className="card-footer">
+              <small className="text-muted">Solicite su cita</small>
             </div>
           </div>
         </div>
       </div>
       <br />
-      <div className="container-fluid">
-        <div className="row solicitud">
-          <div className="col-lg-6 col-sm-5 text-center mt-5">
-            <div>
-              <img className="rounded" src={d5} />
-            </div>
-          </div>
-          <div className="col-lg-6 col-sm-7 mt-5">
-            <p>
-              <h1 className="text-start text-white mt-5">
-                <strong>Reservacion de cita</strong>
-              </h1>
-            </p>
-            <div className="text-start text-white fw-bol">
-              <h4>
-                Estamos encantados de invitarte a explorar nuestras
-                especialidades en el campo de la odontología. En nuestra
-                clínica, nos enorgullece ofrecer una amplia gama de servicios
-                especializados para satisfacer todas tus necesidades dentales.
-              </h4>
-              <a href="#" class=" boton1 btn btn-light mt-4">
-                Solicitud de cita
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
