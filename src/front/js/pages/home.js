@@ -37,7 +37,7 @@ export const Home = () => {
           <div className="row">
             <div className="col-lg-1 col-sm-12 p-4 text-white">
               <h1>+10</h1>
-              <h5>Especialidades</h5>
+              <h5>Tratamientos</h5>
             </div>
             <div className="col-lg-6 col-sm-12 text-start">
               <div>

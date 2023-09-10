@@ -22,6 +22,7 @@ export const Footer = () => (
         </h1>
         <br />
         NUESTRAS OFICINAS
+        <h5>Paseo Colón, San José.</h5>
       </div>
       <div className="text-secondary col border-end text-center">
         <h4>
