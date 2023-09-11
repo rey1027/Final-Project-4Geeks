@@ -7,8 +7,6 @@ import rigoImageUrl from "../../img/rigo-baby.jpg";
 import "../../styles/services.css";
 import ServiceCard from "./cardservices";
 import chequeo from "../../img/chequeo-dental.png";
-import guantes from "../../img/guantes.png";
-import cepillo from "../../img/cepillo-de-dientes.png";
 import endodoncia from "../../img/endodoncia.png";
 import Opediatra from "../../img/odontopediatria.png";
 import ortodoncia from "../../img/ortodoncia.png";
@@ -79,20 +77,22 @@ export const Single = props => {
           title="Carillas-Resinas Dentales"
           image={carillas}
           description="La endodoncia es un procedimiento odontológico especializado diseñado para tratar problemas..."
-        /><ServiceCard
+        />
+        <ServiceCard
         title="Medicos Especialistas"
         image={especialista}
         description="Un chequeo dental, también conocido como revisión dental o examen oral..."
-      />
+        
+      />.
       
         {/* Agrega más ServiceCard para otros servicios */}
       
 	</div>
 			
 		
-			<Link to="/">
+			<Link to="/Especialidad">
 				<span className="btn btn-primary btn-lg" href="#" role="button">
-					Back
+					Especialidades
 				</span>
 			</Link>
 		</div>

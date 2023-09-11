@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
-const ServiceCard = ({ title, image, description }) => {
+import { Link } from 'react-router-dom'; // Agrega esta línea
+const ServiceCard = ({ title, image, description,linkTo }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleModalToggle = () => {
@@ -21,8 +21,10 @@ const ServiceCard = ({ title, image, description }) => {
               type="button"
               className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
               onClick={handleModalToggle}
+              
             >
-              click me
+             click me
+            
             </button>
           </p>
           {showModal && (
