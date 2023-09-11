@@ -1,10 +1,10 @@
 const getState = ({ getStore, getActions, setStore }) => {
-  return {
-    store: {
-      message: null,
+	return {
+		store: {
+			message: null,
       demo: [],
       loginConfirmation: false,
-    },
+		},
     actions: {
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
