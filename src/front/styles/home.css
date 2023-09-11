@@ -1,7 +1,28 @@
-/*
-    home.css: This website contains selectors only used in home.css
+.Pagina {
+  background-color: #fae9ed;
+  padding: 50px;
+}
 
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
-*/
+.Login {
+  background-color: #f5e9fa;
+  padding: 50px;
+}
+
+.titulo {
+  color: #0a2641;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.botonR {
+  background-color: #9182c4;
+  color: black;
+}
+
+.botonRR {
+  background-color: #c482ab;
+  color: black;
+}
+.atributos {
+  color: #101d2a;
+}
