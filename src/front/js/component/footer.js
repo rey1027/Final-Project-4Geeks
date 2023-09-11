@@ -5,7 +5,7 @@ export const Footer = () => (
   <footer className="container-fluid footerF">
     <div className="row mt-2 align-items-center">
       <div className="col border-end">
-        <div>
+        <div className="m-5">
           <img className="logo text-center" src={logo} />
         </div>
         <i class="fa-solid fa-phone"></i>

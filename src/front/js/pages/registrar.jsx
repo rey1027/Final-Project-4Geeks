@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/home.css";
+import "../../styles/registro.css";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 

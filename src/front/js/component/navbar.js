@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
-import logo from "../../img/Logo.png";
+import logo from "../../img/logo.png";
 
 export const Navbar = () => {
   return (
@@ -13,6 +13,28 @@ export const Navbar = () => {
           </span>
         </Link>
         <div className="ml-auto">
+          <div class="btn-group">
+            <button type="button" class="btn botones mx-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Servicios
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <Link to="/">
+                  <a class="dropdown-item" >Tratamientos</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/">
+                  <a class="dropdown-item" >Especialidades</a>
+                </Link>
+              </li>
+              <li>
+                <Link to="/">
+                  <a class="dropdown-item" >Especialistas</a>
+                </Link>
+              </li>
+            </ul>
+          </div>
           <Link to="/registrar">
             <button className="btn mx-2 botones">Registrarse</button>
           </Link>
