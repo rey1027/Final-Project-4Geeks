@@ -49,6 +49,7 @@ const Login = () => {
         title: "Inicio sesión correctamente",
         timer: 2500,
       });
+      localStorage.setItem("token", responseJson.token);
       actions.activateLoginConfirmation();
       navigate("/citas"); //Ruta a la que queremos ir
     } else {
