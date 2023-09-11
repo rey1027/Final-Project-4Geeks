@@ -19,12 +19,12 @@ export const Navbar = () => {
             </button>
             <ul class="dropdown-menu">
               <li>
-                <Link to="/">
+                <Link to="/tratamientos">
                   <a class="dropdown-item" >Tratamientos</a>
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/especialidades">
                   <a class="dropdown-item" >Especialidades</a>
                 </Link>
               </li>
