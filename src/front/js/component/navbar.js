@@ -5,7 +5,7 @@ import logo from "../../img/Logo.png";
 
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-light">
+    <nav className="navbar jumbotron">
       <div className="container">
         <Link to="/">
           <span className="navbar-brand mb-0 h1">
