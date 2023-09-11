@@ -1,3 +1,126 @@
 /* 
     General Styles used on every website (Don't Repeat Yourself)
 */
+.logo{
+    width: 170px;
+    height: 100%;
+}
+
+.SOMOS{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.us{
+    background-color: #E3E2C3;
+}
+
+.chica{
+    width: 400px;
+    height: 500px;
+    margin-top: 5%;
+    
+}
+
+.inicio{
+    background: no-repeat center/150% url("https://cadprojekt.com.pl/wp-content/uploads/2021/01/projektowanie%20gabinet%C3%B3w%20stomatologicznych_48091_20210118_012857.jpg");
+    z-index: 100;
+    background-size: cover;
+    margin-top: 1%;
+}
+
+.contenedor{
+    background: #486989;
+    height: auto;
+    margin: 10%;
+}
+
+.protesis{
+    height: auto;
+    max-width: 90%;
+}
+
+.boton1{
+    background-color: #E3E2C3 ;
+    background: #E3E2C3;
+    border-color: #E3E2C3;
+}
+
+.doctora{
+    background-color: #4143a7;
+    
+}
+
+.doc1{
+    height: 600px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.boton2{
+    background-color: #D8AED3;
+    background: #D8AED3;
+    border-color: #9182C4;
+}
+
+.d5{
+    height: auto;
+    width: 100%;
+    max-width: 500px;
+    margin-top: auto;
+    background-color: #3da1ac;
+    border-radius: 100%;
+}
+
+.texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+    padding: 5%;
+}
+
+.especialidades{
+    background: no-repeat left/100% url("https://williamrclydedds.com/wp-content/uploads/b2b/stock/v2/bigstock/bigstock-Dental-Visit-41142844.jpg?w=1440&h=1080&a=t");
+    z-index: 100;
+    background-size: contain;
+    margin-top: 1%;
+    background-color: #fcf9c4;
+}
+
+.textoD{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    padding: 5%;
+}
+
+.boton3{
+    background-color: #e4d963;
+    background: #d8cd4f;
+    border-color: #d8c8aa;
+}
+
+.solicitud{
+    background-color: #2e7fb6;
+}
+
+.boton4{
+    background-color: #dbd35a;
+    background: #e9e77f;
+    border-color: #b1a612;
+}
+
+.tecnologia{
+    background-color: #5FBDB0;
+    padding-block-end: 3%;
+}
+
+.footerF{
+    background-color: #9ac8e7;
+}
