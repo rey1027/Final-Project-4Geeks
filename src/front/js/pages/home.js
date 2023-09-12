@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import "../../styles/home.css";
 import protesis from "../../img/protesis.png";
 import doc1 from "../../img/doc1.png";
@@ -51,12 +52,14 @@ export const Home = () => {
                   Aquí encontrarás una amplia gama de servicios diseñados para
                   cuidar y mejorar tu salud bucal.
                 </h4>
-                <a
-                  href="#"
-                  className="d-grid gap-2 col-4 boton1 btn btn-info mt-5"
-                >
-                  <h5 className="text-dark">Ver más</h5>
-                </a>
+                <Link to="/tratamientos">
+                  <a
+                    href="#"
+                    className="d-grid gap-2 col-4 boton1 btn btn-info mt-5"
+                  >
+                    <h5 className="text-dark">Ver más</h5>
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -81,12 +84,14 @@ export const Home = () => {
                 clínica, nos enorgullece ofrecer una amplia gama de servicios
                 especializados para satisfacer todas tus necesidades dentales.
               </h4>
-              <a
-                href="#"
-                className="d-grid gap-2 col-4 boton3 btn btn-info mt-5"
-              >
-                <h5 className="text-dark">Ver más</h5>
-              </a>
+              <Link to="/especialidades">
+                <a
+                  href="#"
+                  className="d-grid gap-2 col-4 boton3 btn btn-info mt-5"
+                >
+                  <h5 className="text-dark">Ver más</h5>
+                </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -109,12 +114,14 @@ export const Home = () => {
                 odontología. Están comprometidos con brindar la mejor atención
                 dental.
               </h4>
-              <a
-                href="#"
-                className="d-grid gap-2 col-4 boton2 btn btn-info mt-5"
-              >
-                <h5 className="text-dark">Ver más</h5>
-              </a>
+              <Link to="/">
+                <a
+                  href="#"
+                  className="d-grid gap-2 col-4 boton2 btn btn-info mt-5"
+                >
+                  <h5 className="text-dark">Ver más</h5>
+                </a>
+              </Link>
             </div>
           </div>
           <div className="col-lg-6 col-sm-5 text-center mt-5">
