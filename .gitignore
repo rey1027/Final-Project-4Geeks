@@ -80,3 +80,4 @@ database.database
 database.db
 diagram.png
 __pycache__/
+migrations/versions/2ce50284bc7f_.py
