@@ -43,6 +43,7 @@ const Login = () => {
     if (response.ok) {
       let responseJson = await response.json();
       console.log(responseJson);
+      actions.setName(responseJson.nombre)
       Swal.fire({
         position: "center",
         icon: "success",

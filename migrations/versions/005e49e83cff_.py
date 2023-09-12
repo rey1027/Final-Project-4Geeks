@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 2ce50284bc7f
+Revision ID: 005e49e83cff
 Revises: 
-Create Date: 2023-09-04 18:06:07.053985
+Create Date: 2023-09-07 18:02:20.728065
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2ce50284bc7f'
+revision = '005e49e83cff'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -32,7 +32,6 @@ def upgrade():
     sa.Column('edad', sa.Integer(), nullable=False),
     sa.Column('email', sa.String(length=120), nullable=False),
     sa.Column('password', sa.String(length=80), nullable=False),
-    sa.Column('rol', sa.String(length=5), nullable=False),
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('cedula'),
@@ -64,8 +63,8 @@ def upgrade():
     op.create_table('citas',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('nombre_paciente', sa.String(length=50), nullable=False),
-    sa.Column('fecha', sa.Integer(), nullable=False),
-    sa.Column('hora', sa.Integer(), nullable=False),
+    sa.Column('fecha', sa.Date(), nullable=False),
+    sa.Column('hora', sa.Time(), nullable=False),
     sa.Column('especialidad_id', sa.Integer(), nullable=True),
     sa.Column('tratamientos_id', sa.Integer(), nullable=True),
     sa.Column('especialistas_id', sa.Integer(), nullable=True),
@@ -73,7 +72,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['especialistas_id'], ['especialistas.id'], ),
     sa.ForeignKeyConstraint(['tratamientos_id'], ['tratamientos.id'], ),
     sa.PrimaryKeyConstraint('id'),
-    sa.UniqueConstraint('fecha'),
     sa.UniqueConstraint('hora')
     )
     # ### end Alembic commands ###
