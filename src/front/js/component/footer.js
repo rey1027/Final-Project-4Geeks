@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import logo from "../../img/logo.png";
+import "../../styles/home.css";
 
 export const Footer = () => (
-  <footer className="container-fluid footerF">
+  <footer className="container-fluid footerF mt-5">
     <div className="row mt-2 align-items-center">
       <div className="col border-end">
-        <div className="m-5">
+        <div>
           <img className="logo text-center" src={logo} />
         </div>
         <i class="fa-solid fa-phone"></i>
