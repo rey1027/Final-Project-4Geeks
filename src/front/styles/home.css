@@ -121,6 +121,14 @@
   padding-block-end: 3%;
 }
 
+.grupo {
+  height: auto;
+}
+
+.carta {
+  height: 550px !important;
+}
+
 .footerF {
   background-color: #9ac8e7;
 }

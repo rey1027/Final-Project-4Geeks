@@ -14,23 +14,28 @@ export const Navbar = () => {
         </Link>
         <div className="ml-auto">
           <div class="btn-group">
-            <button type="button" class="btn botones mx-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <button
+              type="button"
+              class="btn botones mx-2 dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               Servicios
             </button>
             <ul class="dropdown-menu">
               <li>
                 <Link to="/tratamientos">
-                  <a class="dropdown-item" >Tratamientos</a>
+                  <a class="dropdown-item">Tratamientos</a>
                 </Link>
               </li>
               <li>
                 <Link to="/especialidades">
-                  <a class="dropdown-item" >Especialidades</a>
+                  <a class="dropdown-item">Especialidades</a>
                 </Link>
               </li>
               <li>
                 <Link to="/">
-                  <a class="dropdown-item" >Especialistas</a>
+                  <a class="dropdown-item">Especialistas</a>
                 </Link>
               </li>
             </ul>

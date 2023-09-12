@@ -158,16 +158,15 @@ export const Home = () => {
         </div>
       </div>
 
-      <div className="container-fluid mt-4 tecnologia">
-        <div className="text-center">
+      <div className="container-fluid mt-4 tecnologia pt-2">
+        <div className="text-center mt-3">
           <h3 className="fw-bol text-white">Nuestra Tecnología</h3>
         </div>
-        <div className="card-group mt-4">
-          <div className="card">
+        <div className="card-group mt-4 grupo">
+          <div className="card carta">
             <img
               src="https://i.pinimg.com/564x/66/ae/d2/66aed22db1ab48e9ad14bbdd4129b527.jpg"
-              className="card-img-top"
-              alt="..."
+              className="card-img-top "
             />
             <div className="card-body">
               <h5 className="card-title">Radiografía Digital</h5>
@@ -182,10 +181,10 @@ export const Home = () => {
               <small className="text-muted">Solicite su cita</small>
             </div>
           </div>
-          <div className="card">
+          <div className="card carta">
             <img
               src="https://i.pinimg.com/564x/e2/41/81/e241811d57f440de79aa1f1998c47c2c.jpg"
-              className="card-img-top"
+              className="card-img-top "
               alt="..."
             />
             <div className="card-body">
@@ -201,10 +200,10 @@ export const Home = () => {
               <small className="text-muted">Solicite su cita</small>
             </div>
           </div>
-          <div className=" card">
+          <div className=" card carta">
             <img
               src="https://i.pinimg.com/564x/6b/55/21/6b5521fda374ad49e41fb58357112d78.jpg"
-              className="card-img-top"
+              className="card-img-top "
               alt="..."
             />
             <div className="card-body">
