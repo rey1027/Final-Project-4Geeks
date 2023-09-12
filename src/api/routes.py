@@ -84,7 +84,7 @@ def login():
     if user is None:
         raise APIException("Usuario no registrado", status_code=400)
 
-    coincidencia = current_app.bcrypt.check_password_hash(user.password,password) #si coincide, devuelve True
+    coincidencia = current_app.bcrypt.check_password_hash(user.password,password)
 
     if not coincidencia:
         raise APIException("Las credenciales son incorrectas", status_code=400)
