@@ -201,14 +201,14 @@ export const Home = () => {
               <small className="text-muted">Solicite su cita</small>
             </div>
           </div>
-          <div className="card">
+          <div className=" card">
             <img
               src="https://i.pinimg.com/564x/6b/55/21/6b5521fda374ad49e41fb58357112d78.jpg"
               className="card-img-top"
               alt="..."
             />
             <div className="card-body">
-              <h5 className="card-title">Tomografía Dental</h5>
+              <h5 className="card-title">Tomografía Dental.</h5>
               <p className="card-text">
                 Su uso resulta especialmente relevante al permitir detectar
                 otras lesiones que pueden pasar desapercibidas si se estudian
