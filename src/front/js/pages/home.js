@@ -208,7 +208,7 @@ export const Home = () => {
               alt="..."
             />
             <div className="card-body">
-              <h5 className="card-title">Tomografía Dental</h5>
+              <h5 className="card-title">Tomografía Dental.</h5>
               <p className="card-text">
                 Su uso resulta especialmente relevante al permitir detectar
                 otras lesiones que pueden pasar desapercibidas si se estudian
