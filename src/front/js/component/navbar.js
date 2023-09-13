@@ -34,7 +34,7 @@ export const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/">
+                <Link to="/especialistas">
                   <a class="dropdown-item">Especialistas</a>
                 </Link>
               </li>
