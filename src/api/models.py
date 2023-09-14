@@ -52,7 +52,7 @@ class Especialistas(db.Model):
     codigo_profesional = db.Column(db.Integer, unique=True, nullable=False)
     especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
 
-def serialize(self):
+    def serialize(self):
         return{
             "id":self.id, 
             "nombre":self.nombre_completo,

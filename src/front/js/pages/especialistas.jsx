@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/especialistas.css";
 import ServiceCard from "../component/cardservices";
+import CardEspecialistas from "../component/cardEspecialistas.js"
 
 
 export const Especialistas = (props) => {
@@ -12,81 +13,13 @@ export const Especialistas = (props) => {
 
   return (
     <>
-      <div className="jumbotron justify-content-center align-items-center "> holaa
-        <div className="row row-cols-3 row-cols-md-3 g-3 justify-content-center justify-items-center ">
-          <ServiceCard
-            name=""
-            experencia=""
-            perfil=""
-            codigo=""
-            especialidad=""
-          />
-          <ServiceCard
-             name=""
-             experencia=""
-             perfil=""
-             codigo=""
-             especialidad=""
-          />
-          <ServiceCard
-             name=""
-             experencia=""
-             perfil=""
-             codigo=""
-             especialidad=""
-          />
-          <ServiceCard
-             name=""
-             experencia=""
-             perfil=""
-             codigo=""
-             especialidad=""
-          />
-          <ServiceCard
-            name=""
-            experencia=""
-            perfil=""
-            codigo=""
-            especialidad=""
-          />
-        </div>
-        <br />
-        <div className="row row-cols-3 row-cols-md-3 g-3 justify-content-center align-items-center ">
-          <ServiceCard
-            name=""
-            experencia=""
-            perfil=""
-            codigo=""
-            especialidad=""
-          />
-          <ServiceCard
-            name=""
-            experencia=""
-            perfil=""
-            codigo=""
-            especialidad=""
-          />
-          <ServiceCard
-             name=""
-             experencia=""
-             perfil=""
-             codigo=""
-             especialidad=""
-          />
-          <ServiceCard
-             name=""
-             experencia=""
-             perfil=""
-             codigo=""
-             especialidad=""
-          />
-          <ServiceCard
-             name=""
-             experencia= ""
-             perfil=""
-             codigo=""
-             especialidad=""
-          />
+      <div className="jumbotron">
+        <div className="Card row row-cols-4 row-cols-md-4 g-3 justify-content-center justify-items-center">
+          {store.especialistas.map((item)=>{
+            return(
+              <CardEspecialistas especialista ={item} key={item.id}/>
+            )
+          })}
           .{/* Agrega más ServiceCard para otros servicios */}
         </div>
 

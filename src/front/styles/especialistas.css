@@ -1,0 +1,13 @@
+
+.RowCards{
+    width: 90%;
+    height: 300%;
+    margin: 1%;
+    padding-block-end: 3%;
+    padding-inline-start: 5%;
+}
+
+.Card{
+    background-color: darkcyan;
+    margin-top: 3%;
+}

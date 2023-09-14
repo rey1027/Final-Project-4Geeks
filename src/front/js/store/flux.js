@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			message: null,
       demo: [],
       loginConfirmation: false,
+      especialistas: [],
 		},
     actions: {
       // Use getActions to call a function within a fuction
@@ -75,6 +76,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         setStore({ ...store, loginConfirmation: false });
       },
+      getEspecialistas: async() =>{
+        const store = getStore()
+        try {
+          const response = await fetch(process.env.BACKEND_URL+"/especialistas")
+          if(response.ok){
+            const data=await response.json()
+            setStore({
+              especialistas: data
+            })
+          }
+        } catch (error) {
+          
+        }
+      }
     },
   };
 };

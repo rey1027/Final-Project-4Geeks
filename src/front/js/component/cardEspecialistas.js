@@ -1,75 +1,33 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'; // Agrega esta línea
-const ServiceCard = ({ title, image, description,linkTo }) => {
-  const [showModal, setShowModal] = useState(false);
+import "../../styles/especialistas.css";
+const CardEspecialistas = ({especialista}) => {
 
-  const handleModalToggle = () => {
-    setShowModal(!showModal);
-  };
 
   return (
-    <div className="col">
-      <div className="card h-100 justify-content-center justify-items-center">
-        <img src={image} className="card-img-top" alt={title} />
-        <div className="card-body justify-content-center justify-items-center">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">
-            <br />
-            <p>Quieres saber mas ?</p>
-            <button
-              type="button"
-              className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-              onClick={handleModalToggle}
-              
-            >
-             click me
-            
-            </button>
-          </p>
-          {showModal && (
-            <div
-              className="modal fade justify-content-center justify-items-center" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true"
-              tabIndex="-1"
-             
-            >
-              <div className="modal-dialog">
-                <div className="modal-content justify-content-center justify-items-center">
-                  <div className="modal-header">
-                    <h5 className="modal-title" id="staticBackdropLabel">
-                      {title}
-                    </h5>
-                    <button
-                      type="button " data-bs-dismiss="modal"
-                      className="btn-close" 
-                      onClick={handleModalToggle}
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body">{description}</div>
-                  <div className="modal-footer">
-                    <button
-                      type="button"
-                      className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-                      onClick={handleModalToggle}
-                    >
-                      Close
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+    <div className="Card">
+      <div className="RowCards">
+        <div className="card rounded">
+          <div className="card-body">
+          <h5 className="card-title text-start">{especialista.nombre}</h5>
+          <br/>
+          <h6 className="card-subtitle mb-2 text-muted">Experiencia: {especialista.años_experiencia} años</h6>
+          <br/>
+          <p className="card-text text-start">{especialista.perfil_profesional}</p>
+          <br/>
+          <h6 className="Code mb-2 text-muted">Código: {especialista.codigo_profesional}</h6>
+          <br/>
+         </div>
         </div>
-      </div>
+    </div>
     </div>
   );
 };
 
-ServiceCard.propTypes = {
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
+CardEspecialistas.propTypes = {
+  especialista: PropTypes.object,
+
 };
 
-export default ServiceCard;
+export default CardEspecialistas;
