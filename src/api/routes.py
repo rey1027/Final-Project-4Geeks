@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint,current_app
-from api.models import db, User, Especialidad,Especialistas, Citas,Tratamientos
+from api.models import *
 from api.utils import generate_sitemap, APIException
 
 from flask_jwt_extended import create_access_token
@@ -92,6 +92,19 @@ def login():
     access_token = create_access_token(identity=email)
     return jsonify({"token":access_token}), 200
 
+@api.route("/password", methods=["POST"])
+def endpoint_mail():
+    body = request.get_json()
+    asunto = body["asunto"]
+    destinatario = body["destinatario"]
+    cuerpo = body["contenido"]
+
+    verificar = send_email(asunto, destinatario, cuerpo)
+
+    if verificar==True:
+        return jsonify({"message":"email sent"}), 200
+    else:
+        return jsonify({"message":"error sending mail"}), 400
 #Rutas realizadas por Glenda 
 
 #-------------------------------------------------------ESPECIALIDADES--------------------------------------------------------------
