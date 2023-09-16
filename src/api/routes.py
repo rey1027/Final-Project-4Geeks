@@ -12,6 +12,42 @@ from flask_jwt_extended import jwt_required
 
 api = Blueprint('api', __name__)
 
+def send_email(asunto, destinatario, body):
+    message = MIMEMultipart("alternative")
+    message["Subject"] = asunto
+    message["From"] = email_address
+    message["To"] = destinatario
+    
+    #body en HTML
+    html = ''' 
+    
+    <html>
+    <body>
+    <div>
+    <h1>
+    Hola 
+    </h1>
+     ''' + body + '''   
+    </div>
+    </body>
+    </html>
+    '''
+    html_mime = MIMEText(html, 'html')
+
+    message.attach(html_mime)
+
+        try:
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL(smtp_address, smtp_port, context=context) as server:
+            server.login(email_address, email_password)
+            server.sendmail(email_address, destinatario, message.as_string())
+        return True
+    
+    except Exception as error:
+        print(str(error))
+        return False
+
+
 
 @api.route('/hello', methods=['POST', 'GET'])
 def handle_hello():
@@ -105,6 +141,8 @@ def endpoint_mail():
         return jsonify({"message":"email sent"}), 200
     else:
         return jsonify({"message":"error sending mail"}), 400
+
+        
 #Rutas realizadas por Glenda 
 
 #-------------------------------------------------------ESPECIALIDADES--------------------------------------------------------------
