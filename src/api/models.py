@@ -34,6 +34,7 @@ class Especialidad(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre_completo = db.Column(db.String(30), unique=True, nullable=False)
     descripcion = db.Column(db.String(255), unique=False, nullable=False)
+    especialista_id = db.Column(db.Integer, db.ForeignKey('especialistas.id'))
 
     def serialize(self):
         return{
@@ -50,7 +51,7 @@ class Especialistas(db.Model):
     años_experiencia = db.Column(db.Integer, unique=True, nullable=False)
     perfil_profesional = db.Column(db.String(255), unique=False, nullable=False)
     codigo_profesional = db.Column(db.Integer, unique=True, nullable=False)
-    especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
+    especialidad = db.relationship ('Especialidad')
 
     def serialize(self):
         return{
@@ -59,7 +60,8 @@ class Especialistas(db.Model):
             "años_experiencia":self.años_experiencia,
             "perfil_profesional":self.perfil_profesional,
             "codigo_profesional":self.codigo_profesional,
-            "especialidad_id":self.especialidad_id
+            "especialidad_id":self.especialidad_id,
+            "nombre_de_especialidad":Especialidad.query.get(self.especialidad_id).serialize()["nombre"]
         }
 
 class Tratamientos(db.Model):

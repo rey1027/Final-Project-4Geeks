@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/especialistas.css";
-import ServiceCard from "../component/cardservices";
 import CardEspecialistas from "../component/cardEspecialistas.js"
 
 
