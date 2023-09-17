@@ -8,7 +8,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nombre_completo = db.Column(db.String(50), unique=False, nullable=False)
     cedula = db.Column(db.Integer, unique=True, nullable=False)
-    edad = db.Column(db.Integer, unique=True, nullable=False)
+    edad = db.Column(db.Integer, unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     password = db.Column(db.String(80), unique=False, nullable=False)
     is_active = db.Column(db.Boolean(), unique=False, nullable=False)
@@ -47,12 +47,12 @@ class Especialistas(db.Model):
     __tablename__ = 'especialistas'
     id = db.Column(db.Integer, primary_key=True)
     nombre_completo = db.Column(db.String(50), unique=False, nullable=False)
-    años_experiencia = db.Column(db.Integer, unique=True, nullable=False)
+    años_experiencia = db.Column(db.Integer, unique=False, nullable=False)
     perfil_profesional = db.Column(db.String(255), unique=False, nullable=False)
     codigo_profesional = db.Column(db.Integer, unique=True, nullable=False)
     especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
 
-def serialize(self):
+    def serialize(self):
         return{
             "id":self.id, 
             "nombre":self.nombre_completo,
@@ -68,7 +68,7 @@ class Tratamientos(db.Model):
     nombre_completo = db.Column(db.String(50), unique=False, nullable=False)
     descripcion = db.Column(db.String(255), unique=False, nullable=False)
     especialista_id = db.Column(db.Integer, db.ForeignKey('especialistas.id'))
-    precio = db.Column(db.Integer, unique=True, nullable=False)
+    precio = db.Column(db.Integer, unique=False, nullable=False)
 
     def serialize(self):
         return{
@@ -84,8 +84,8 @@ class Citas(db.Model):
     __tablename__ = 'citas'
     id = db.Column(db.Integer, primary_key=True)
     nombre_paciente = db.Column(db.String(50), unique=False, nullable=False)
-    fecha = db.Column(db.Date, unique=True, nullable=False)
-    hora = db.Column(db.Time, unique=True, nullable=False)
+    fecha = db.Column(db.Date, unique=False, nullable=False)
+    hora = db.Column(db.Time, unique=False, nullable=False)
     especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
     tratamientos_id = db.Column(db.Integer, db.ForeignKey('tratamientos.id'))
     especialistas_id = db.Column(db.Integer, db.ForeignKey('especialistas.id'))
@@ -95,7 +95,7 @@ class Citas(db.Model):
             "id":self.id, 
             "nombre":self.nombre_paciente,
             "fecha":self.fecha,
-            "hora":self.hora,
+            "hora": str(self.hora),
             "especialidad_id":self.especialidad_id,
             "tratamientos_id":self.tratamientos_id,
             "especialistas_id":self.especialistas_id

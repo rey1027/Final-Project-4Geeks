@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint,current_app
-from api.models import db, User, Especialidad,Especialistas, Citas,Tratamientos
+from api.models import *
 from api.utils import generate_sitemap, APIException
 
 from flask_jwt_extended import create_access_token
@@ -90,7 +90,8 @@ def login():
         raise APIException("Las credenciales son incorrectas", status_code=400)
 
     access_token = create_access_token(identity=email)
-    return jsonify({"token":access_token}), 200
+    user = User.query.filter_by(email=email).first().serialize()
+    return jsonify({"token":access_token, "nombre":user["nombre_completo"]}), 200
 
 #Rutas realizadas por Glenda 
 
@@ -133,7 +134,6 @@ def actualizar_especialidad(id):
 def eliminar_especialidad(id):
     especialidad = Especialidad.query.get(id)
     if especialidad is None:
-
         return jsonify({'error': 'Especialidad no encontrada'}), 404
     
     db.session.delete(especialidad)
@@ -146,6 +146,12 @@ def eliminar_especialidad(id):
 @api.route('/especialistas', methods=['GET'])
 def obtener_especialistas():
     especialistas = Especialistas.query.all()
+    especialistas_serializados = [especialista.serialize() for especialista in especialistas]
+    return jsonify(especialistas_serializados), 200
+
+@api.route('/especialistas/especialidad/<int:id>', methods=['GET'])
+def obtener_especialistas_x_especialidad(id):
+    especialistas = Especialistas.query.filter_by(especialidad_id=id).all()
     especialistas_serializados = [especialista.serialize() for especialista in especialistas]
     return jsonify(especialistas_serializados), 200
 
@@ -194,6 +200,25 @@ def obtener_tratamientos():
     
     return jsonify(search_serialize), 200
 
+@api.route('/tratamientos/especialista/<int:id>', methods=['GET'])
+def obtener_tratamientos_x_especialista(id):
+    tratamientos = Tratamientos.query.filter_by(especialista_id=id).all()
+    tratamientos_serializados = [tratamiento.serialize() for tratamiento in tratamientos]
+    return jsonify(tratamientos_serializados), 200
+
+@api.route('/tratamientos', methods=['POST'])
+def create_tratamiento():
+    data = request.json
+    nuevo_tratamiento = Tratamientos(
+        nombre_completo=data['nombre'],
+        descripcion=data['descripcion'],
+        precio=data['precio'],
+        especialista_id=data['especialista_id']
+    )
+    db.session.add(nuevo_tratamiento)
+    db.session.commit()
+    return jsonify({'message': 'Tratamiento creado exitosamente'}), 201
+
 @api.route('/tratamientos/<int:id>', methods=['PUT'])
 def update_tratamiento(id):
     tratamiento = Tratamientos.query.get(id)
@@ -235,8 +260,23 @@ def create_cita():
         tratamientos_id=data['tratamientos_id'],
         especialistas_id=data['especialistas_id']
     )
-    db.session.add(nueva_cita)
-    db.session.commit()
+
+    especialidad = Especialidad.query.get(nueva_cita.especialidad_id)
+    tratamiento = Tratamientos.query.get(nueva_cita.tratamientos_id)
+    especialista = Especialistas.query.get(nueva_cita.especialistas_id)
+    if especialidad is None:
+        return jsonify({'error': 'Especialidad no encontrada'}), 404
+    elif tratamiento is None:
+        return jsonify({'error': 'Tratamiento no encontrado'}), 404
+    elif especialista is None:
+        return jsonify({'error': 'Especialista no encontrado'}), 404
+
+    try:
+        db.session.add(nueva_cita)
+        db.session.commit()
+    except:
+        return jsonify({'error': 'Problema al insertar cita'}), 400
+    
     return jsonify({'message': 'Cita creada exitosamente'}), 201 
 
 @api.route('/citas/<int:id>', methods=['DELETE'])
