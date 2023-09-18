@@ -5,11 +5,21 @@ const getState = ({ getStore, getActions, setStore }) => {
       demo: [],
       loginConfirmation: false,
       current_user: null,
+      nombre: '',
     },
     actions: {
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
         getActions().changeColor(0, "green");
+      },
+      setName: (nombre) => {
+        const store = getStore();
+        setStore({ ...store, nombre });
+      },
+
+      getName: () => {
+        const store = getStore();
+        return store.nombre
       },
 
       getMessage: async () => {
