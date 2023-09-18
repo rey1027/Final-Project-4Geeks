@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'; // Agrega esta línea
-const ServiceCard = ({ title, image, description,linkTo }) => {
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom"; // Agrega esta línea
+const ServiceCard = ({ title, image, description, linkTo }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleModalToggle = () => {
@@ -19,19 +19,23 @@ const ServiceCard = ({ title, image, description,linkTo }) => {
             <p>Quieres saber mas ?</p>
             <button
               type="button"
-              className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+              className="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
               onClick={handleModalToggle}
-              
             >
-             click me
-            
+              click me
             </button>
           </p>
           {showModal && (
             <div
-              className="modal fade justify-content-center justify-items-center" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+              className="modal fade justify-content-center justify-items-center"
+              id="staticBackdrop"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
               tabIndex="-1"
-             
             >
               <div className="modal-dialog">
                 <div className="modal-content justify-content-center justify-items-center">
@@ -40,8 +44,9 @@ const ServiceCard = ({ title, image, description,linkTo }) => {
                       {title}
                     </h5>
                     <button
-                      type="button " data-bs-dismiss="modal"
-                      className="btn-close" 
+                      type="button "
+                      data-bs-dismiss="modal"
+                      className="btn-close"
                       onClick={handleModalToggle}
                       aria-label="Close"
                     ></button>
@@ -50,7 +55,9 @@ const ServiceCard = ({ title, image, description,linkTo }) => {
                   <div className="modal-footer">
                     <button
                       type="button"
-                      className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                      className="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
                       onClick={handleModalToggle}
                     >
                       Close

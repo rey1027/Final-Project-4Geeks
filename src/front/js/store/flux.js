@@ -1,10 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	return {
-		store: {
-			message: null,
+  return {
+    store: {
+      message: null,
       demo: [],
       loginConfirmation: false,
-		},
+      current_user: null,
+    },
     actions: {
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
@@ -75,6 +76,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         setStore({ ...store, loginConfirmation: false });
       },
+      setCurrentUser: (user) => {
+        const store = getStore();
+
+        setStore({ ...store, current_user: user });
+
+      },
+
+      isAuth: async() => {
+        const store = getStore();
+        const actions = getActions();
+
+        let response = await actions.fetchPromise(
+          "/api/isauth",
+          "GET"
+        );
+    
+        if (response.ok) {
+          let responseJson = await response.json();
+          console.log(responseJson);
+          setStore({ ...store, current_user: responseJson.user });
+          actions.activateLoginConfirmation();
+        }
+
+      }
     },
   };
 };
