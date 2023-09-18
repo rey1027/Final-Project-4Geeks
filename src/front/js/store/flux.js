@@ -4,7 +4,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       message: null,
       demo: [],
       loginConfirmation: false,
+      current_user: null,
       nombre: '',
+      tratamientos: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -84,8 +86,70 @@ const getState = ({ getStore, getActions, setStore }) => {
         const actions = getActions();
 
         setStore({ ...store, loginConfirmation: false });
+
       },
+      setCurrentUser: (user) => {
+        const store = getStore();
+
+        setStore({ ...store, current_user: user });
+
+      },
+
+      isAuth: async() => {
+        const store = getStore();
+        const actions = getActions();
+
+        let response = await actions.fetchPromise(
+          "/api/isauth",
+          "GET"
+        );
+    
+        if (response.ok) {
+          let responseJson = await response.json();
+          console.log(responseJson);
+          setStore({ ...store, current_user: responseJson.user });
+          actions.activateLoginConfirmation();
+        }
+
+      },
+
+      obtenerTratamientos: () => {
+
+        fetch(process.env.BACKEND_URL + "/api/tratamientos")
+
+          .then((response) => response.json())
+          .then(data => setStore({ tratamientos: data }))
+
+        // if (response.ok) {
+        //   let responseJson = response.json();
+        //   setTratamientos(responseJson);
+        //   console.log(responseJson);
+        // } else {
+        //   let responseJson = response.json();
+        //   console.log(responseJson);
+        // }
+
+      },
+      obtenerCitas: () => {
+
+        fetch(process.env.BACKEND_URL + "/api/citas")
+
+          .then((response) => response.json())
+          .then(data => setStore({ citas: data }))
+
+        // if (response.ok) {
+        //   let responseJson = response.json();
+        //   setTratamientos(responseJson);
+        //   console.log(responseJson);
+        // } else {
+        //   let responseJson = response.json();
+        //   console.log(responseJson);
+        // }
+
+      }
+
     },
+
   };
 };
 

@@ -11,14 +11,6 @@ const Login = () => {
   let navigate = useNavigate(""); //
 
   const login = async () => {
-    /*if (email == "") {
-      Swal.fire({
-        icon: "warning",
-        title: "Cuidado!",
-        text: "Debes ingresar el correo ",
-        timer: 3500,
-      });
-    }*/
     if (password == "") {
       Swal.fire({
         icon: "warning",
@@ -52,7 +44,8 @@ const Login = () => {
       });
       localStorage.setItem("token", responseJson.token);
       actions.activateLoginConfirmation();
-      navigate("/citas"); //Ruta a la que queremos ir
+      actions.setCurrentUser(responseJson.user);
+      navigate("/"); //Ruta a la que queremos ir
     } else {
       let responseJson = await response.json();
       console.log(responseJson);

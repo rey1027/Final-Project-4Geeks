@@ -2,7 +2,6 @@ import React, { useContext, useRef, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
 import Swal from "sweetalert2";
-import WithAuth from "../component/Auth/WithAuth";
 
 export const Citas = () => {
   const { store, actions } = useContext(Context);
@@ -262,4 +261,4 @@ export const Citas = () => {
   );
 };
 
-export default WithAuth(Citas);
+export default Citas;

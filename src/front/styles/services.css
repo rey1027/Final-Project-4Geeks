@@ -1,5 +1,14 @@
 .col{
     width: 200px;
+    height: 330px;
+    
+}
+.boton{
+    background-color: rgba(66, 170, 170, 0.829);
+    border-radius: 12px;
+}
+.text-wrap{
+    width: 10rem;
 }
 h5{
     text-align: center;
@@ -8,5 +17,11 @@ p{
     text-align: center;
 }
 .card{
-    height: 250px;
+    height: 150px;
+}
+.card-img{
+    padding: 13px;
+    justify-content: center;
+    align-items: center;
+
 }
