@@ -32,7 +32,7 @@ class User(db.Model):
         }
 
 
-class Especialidad(db.Model):
+class Especialidad(db.Model): #Yolanda
     __tablename__ = 'especialidad'
     id = db.Column(db.Integer, primary_key=True)
     nombre_completo = db.Column(db.String(30), unique=True, nullable=False)

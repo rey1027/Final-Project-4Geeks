@@ -43,12 +43,13 @@ export const Navbar = () => {
             >
               Servicios
             </button>
-            <ul class="dropdown-menu">
+            <ul className="dropdown-menu">
               <li>
                 <Link to="/tratamientos">
                   <a class="dropdown-item">Tratamientos</a>
                 </Link>
               </li>
+
               <li>
                 <Link to="/especialidades">
                   <a class="dropdown-item">Especialidades</a>
@@ -59,6 +60,12 @@ export const Navbar = () => {
                   <a class="dropdown-item">Especialistas</a>
                 </Link>
               </li>
+              <li>
+                <Link to="/listacitas">
+                  <p className="dropdown-item" >Citas</p>
+                </Link>
+              </li>
+
             </ul>
           </div>
           {store.current_user ? store.current_user.rol == "user" ? 

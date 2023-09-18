@@ -295,7 +295,7 @@ def delete_especialista(id):
     return jsonify({'message': 'Especialista eliminado exitosamente'})
 
 #-------------------------------------------------------TRATAMIENTOS---------------------------------------------------------------------
-@api.route('/tratamientos', methods=['GET'])
+@api.route('/tratamientos', methods=['GET']) #yolanda
 def obtener_tratamientos():
     search = Tratamientos.query.all()  
     search_serialize = list(map(lambda x: x.serialize(), search)) # search.map((item)=>{item.serialize()})
