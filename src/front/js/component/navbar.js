@@ -13,26 +13,33 @@ export const Navbar = () => {
           </span>
         </Link>
         <div className="ml-auto">
-          <div class="btn-group">
-            <button type="button" class="btn botones mx-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <div className="btn-group">
+            <button type="button" className="btn botones mx-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
               Servicios
             </button>
-            <ul class="dropdown-menu">
+            <ul className="dropdown-menu">
               <li>
                 <Link to="/tratamientos">
-                  <a class="dropdown-item" >Tratamientos</a>
+                  <p className="dropdown-item" >Tratamientos</p>
                 </Link>
               </li>
+
               <li>
                 <Link to="/especialidades">
-                  <a class="dropdown-item" >Especialidades</a>
+                  <p className="dropdown-item" >Especialidades</p>
                 </Link>
               </li>
               <li>
                 <Link to="/">
-                  <a class="dropdown-item" >Especialistas</a>
+                  <p className="dropdown-item" >Especialistas</p>
                 </Link>
               </li>
+              <li>
+                <Link to="/listacitas">
+                  <p className="dropdown-item" >Citas</p>
+                </Link>
+              </li>
+
             </ul>
           </div>
           <Link to="/registrar">

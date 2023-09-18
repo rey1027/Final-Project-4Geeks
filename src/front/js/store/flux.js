@@ -1,10 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
-	return {
-		store: {
-			message: null,
+  return {
+    store: {
+      message: null,
       demo: [],
       loginConfirmation: false,
-		},
+      tratamientos: [],
+    },
     actions: {
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
@@ -74,8 +75,46 @@ const getState = ({ getStore, getActions, setStore }) => {
         const actions = getActions();
 
         setStore({ ...store, loginConfirmation: false });
+
       },
+
+      obtenerTratamientos: () => {
+
+        fetch(process.env.BACKEND_URL + "/api/tratamientos")
+
+          .then((response) => response.json())
+          .then(data => setStore({ tratamientos: data }))
+
+        // if (response.ok) {
+        //   let responseJson = response.json();
+        //   setTratamientos(responseJson);
+        //   console.log(responseJson);
+        // } else {
+        //   let responseJson = response.json();
+        //   console.log(responseJson);
+        // }
+
+      },
+      obtenerCitas: () => {
+
+        fetch(process.env.BACKEND_URL + "/api/citas")
+
+          .then((response) => response.json())
+          .then(data => setStore({ citas: data }))
+
+        // if (response.ok) {
+        //   let responseJson = response.json();
+        //   setTratamientos(responseJson);
+        //   console.log(responseJson);
+        // } else {
+        //   let responseJson = response.json();
+        //   console.log(responseJson);
+        // }
+
+      }
+
     },
+
   };
 };
 

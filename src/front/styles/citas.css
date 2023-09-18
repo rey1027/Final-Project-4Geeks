@@ -1,0 +1,57 @@
+.paper{
+    padding-top: 8px;
+    padding-bottom: 100px;
+    
+}
+
+.botonX{
+    border: none;
+    background: none;
+    height: 5px;
+    font-size: 15px;
+}
+.eliminar{
+    color: red;
+    text-justify: center;
+}
+.lista2{
+    border-style: dashed ;
+    border-width: 3px;
+    border-color: rgb(141, 141, 223);
+    
+}
+.lista3{
+    border-style: dotted;
+    border-width: 5px;
+    border-color: rgb(141, 141, 223);
+}
+
+.lista{
+    
+    border-style: dashed ;
+    border-width: 3px;
+    border-color: rgb(141, 141, 223);
+    font-size: 19px;
+    color:  rgba(125, 157, 206, 0.699);
+    text-shadow: 1px 1px black;
+}
+.containercitas{
+    max-width: 500px;
+    margin: 0 auto; /* Esto centra el contenedor horizontalmente */
+    /*width: 500px;
+    border: solid rgba(218, 203, 203, 0.329) ;*/
+    margin-top: 50px;
+}
+.agregado{
+    float: left;
+    color: gray;
+}
+.titulotodos{
+    font-size: 4rem;
+    color: rgba(125, 157, 206, 0.699);
+    text-shadow: 1px 1px black;
+}
+input{
+border: white;
+
+}

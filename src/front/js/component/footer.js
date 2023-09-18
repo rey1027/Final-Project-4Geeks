@@ -8,17 +8,17 @@ export const Footer = () => (
         <div className="m-5">
           <img className="logo text-center" src={logo} />
         </div>
-        <i class="fa-solid fa-phone"></i>
+        <i className="fa-solid fa-phone"></i>
         <h5 className="">Teléfono: +506 2266-9988</h5>
         <br />
-        <i class="fa-solid fa-envelope"></i>{" "}
+        <i className="fa-solid fa-envelope"></i>{" "}
         <h5 className=""> Email: info@clinicadentalsmile.com</h5>
         <p></p>
       </div>
       <div className="col border-end text-center">
         <br />
         <h1 className="text-secondary">
-          <i class="fa-solid fa-street-view"></i>
+          <i className="fa-solid fa-street-view"></i>
         </h1>
         <br />
         NUESTRAS OFICINAS
@@ -26,19 +26,19 @@ export const Footer = () => (
       </div>
       <div className="text-secondary col border-end text-center">
         <h4>
-          <i class="fa-brands fa-facebook-f"></i>
+          <i className="fa-brands fa-facebook-f"></i>
         </h4>
         <br />
         <h4>
-          <i class="fa-brands fa-instagram"></i>
+          <i className="fa-brands fa-instagram"></i>
         </h4>
         <br />
         <h4>
-          <i class="fa-brands fa-tiktok"></i>
+          <i className="fa-brands fa-tiktok"></i>
         </h4>
         <br />
         <h4>
-          <i class="fa-brands fa-youtube"></i>
+          <i className="fa-brands fa-youtube"></i>
         </h4>
       </div>
     </div>

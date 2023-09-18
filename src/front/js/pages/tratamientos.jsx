@@ -16,67 +16,41 @@ import carillas from "../../img/carillas.png";
 import especialista from "../../img/especialista.png";
 
 export const Tratamientos = (props) => {
+  const imagenesTratamientos = [chequeo, endodoncia, Opediatra,ortodoncia,LimpiezaD]
+  const imagenesTratamientos2 = [implanteD, extraccion, periodoncia,carillas,especialista]
   const { store, actions } = useContext(Context);
-  const params = useParams();
-
+  
+  useEffect(()=>{
+    actions.obtenerTratamientos();
+  }, [])
+  console.log(store.tratamientos);
   return (
     <>
       <div className="jumbotron justify-content-center align-items-center ">
-        <div class="row row-cols-3 row-cols-md-3 g-3 justify-content-center justify-items-center ">
+        <div className="row row-cols-3 row-cols-md-3 g-3 justify-content-center justify-items-center ">
+          {store.tratamientos.slice(0, 5).map((item,i)=>(
           <ServiceCard
-            title="Chequeo Dental"
-            image={chequeo}
-            description="Un chequeo dental, también conocido como revisión dental o examen oral..."
-          />
-          <ServiceCard
-            title="Endodoncia"
-            image={endodoncia}
-            description="La endodoncia es un procedimiento odontológico especializado diseñado para tratar problemas..."
-          />
-          <ServiceCard
-            title="Odontopediatra"
-            image={Opediatra}
-            description="Un chequeo dental, también conocido como revisión dental o examen oral..."
-          />
-          <ServiceCard
-            title="Ortodoncia"
-            image={ortodoncia}
-            description="La endodoncia es un procedimiento odontológico especializado diseñado para tratar problemas..."
-          />
-          <ServiceCard
-            title="Limpieza Dental"
-            image={LimpiezaD}
-            description="Un chequeo dental, también conocido como revisión dental o examen oral..."
-          />
+            key={i}
+            
+            title = {item.nombre}
+            image= {imagenesTratamientos[i]}
+            description={item.descripcion}
+            price= {item.precio}
+          />))}
+
         </div>
         <br />
-        <div class="row row-cols-3 row-cols-md-3 g-3 justify-content-center align-items-center ">
+        <div className="row row-cols-3 row-cols-md-3 g-3 justify-content-center align-items-center ">
+        
+          {store.tratamientos.slice(5,10).map((item,i)=>(
           <ServiceCard
-            title="Implantes Dentales"
-            image={implanteD}
-            description="Un chequeo dental, también conocido como revisión dental o examen oral..."
-          />
-          <ServiceCard
-            title="Cirugia De Cordales"
-            image={extraccion}
-            description="La endodoncia es un procedimiento odontológico especializado diseñado para tratar problemas..."
-          />
-          <ServiceCard
-            title="Periodoncia Dental"
-            image={periodoncia}
-            description="Un chequeo dental, también conocido como revisión dental o examen oral..."
-          />
-          <ServiceCard
-            title="Carillas-Resinas Dentales"
-            image={carillas}
-            description="La endodoncia es un procedimiento odontológico especializado diseñado para tratar problemas..."
-          />
-          <ServiceCard
-            title="Medicos Especialistas"
-            image={especialista}
-            description="Un chequeo dental, también conocido como revisión dental o examen oral..."
-          />
-          .{/* Agrega más ServiceCard para otros servicios */}
+            key={i}
+            title = {item.nombre}
+            image= {imagenesTratamientos2[i]}
+            description={item.descripcion}
+            price= {item.precio}
+          />))}
+
         </div>
 
         <Link to="/especialidades">
