@@ -59,7 +59,6 @@ export const Navbar = () => {
                   <p className="dropdown-item" >Citas</p>
                 </Link>
               </li>
-
             </ul>
           </div>
           {store.current_user ? store.current_user.rol == "user" ? 
