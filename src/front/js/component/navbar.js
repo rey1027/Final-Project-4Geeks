@@ -49,12 +49,6 @@ export const Navbar = () => {
                   <a class="dropdown-item">Tratamientos</a>
                 </Link>
               </li>
-
-              <li>
-                <Link to="/especialidades">
-                  <a class="dropdown-item">Especialidades</a>
-                </Link>
-              </li>
               <li>
                 <Link to="/especialistas">
                   <a class="dropdown-item">Especialistas</a>
