@@ -5,6 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       demo: [],
       loginConfirmation: false,
       tratamientos: [],
+      citas: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -100,7 +101,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch(process.env.BACKEND_URL + "/api/citas")
 
           .then((response) => response.json())
-          .then(data => setStore({ citas: data }))
+          .then(data => console.log({ citas: data }))
+
 
         // if (response.ok) {
         //   let responseJson = response.json();

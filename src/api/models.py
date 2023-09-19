@@ -51,6 +51,7 @@ class Especialistas(db.Model):
     perfil_profesional = db.Column(db.String(255), unique=False, nullable=False)
     codigo_profesional = db.Column(db.Integer, unique=True, nullable=False)
     especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
+    citas = db.relationship('Citas', backref='especialistas', lazy=True)
 
 def serialize(self):
         return{
@@ -69,6 +70,7 @@ class Tratamientos(db.Model):
     descripcion = db.Column(db.String(255), unique=False, nullable=False)
     especialista_id = db.Column(db.Integer, db.ForeignKey('especialistas.id'))
     precio = db.Column(db.Integer, unique=True, nullable=False)
+    citas = db.relationship('Citas', backref='tratamientos', lazy=True)
 
     def serialize(self):
         return{
@@ -86,19 +88,21 @@ class Citas(db.Model):
     nombre_paciente = db.Column(db.String(50), unique=False, nullable=False)
     fecha = db.Column(db.Date, unique=True, nullable=False)
     hora = db.Column(db.Time, unique=True, nullable=False)
-    especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
-    tratamientos_id = db.Column(db.Integer, db.ForeignKey('tratamientos.id'))
-    especialistas_id = db.Column(db.Integer, db.ForeignKey('especialistas.id'))
+    #especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
+    tratamientos_id = db.Column(db.Integer, db.ForeignKey('tratamientos.id'), nullable=False)
+    especialistas_id = db.Column(db.Integer, db.ForeignKey('especialistas.id'), nullable=False)
 
     def serialize(self):
+        especialista=Especialistas.query.get(self.especialistas_id)
+        tratamiento=Tratamientos.query.get(self.tratamientos_id)
         return{
             "id":self.id, 
             "nombre":self.nombre_paciente,
-            "fecha":self.fecha,
-            "hora":self.hora,
-            "especialidad_id":self.especialidad_id,
-            "tratamientos_id":self.tratamientos_id,
-            "especialistas_id":self.especialistas_id
+            "fecha":str(self.fecha),
+            "hora":str(self.hora),
+            #"especialidad_id":self.especialidad_id,
+            "tratamiento":tratamiento.nombre_completo,
+            "especialista":especialista.nombre_completo
         }
 
 

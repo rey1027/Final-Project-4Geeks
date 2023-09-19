@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom'; // Agrega esta línea
-const ServiceCard = ({ title, image, description, price, linkTo }) => {
+const ServiceCard = ({ title, image, description, price, id, linkTo }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleModalToggle = () => {
     setShowModal(!showModal);
+
   };
 
   return (
@@ -19,7 +20,9 @@ const ServiceCard = ({ title, image, description, price, linkTo }) => {
 
             <button
               type="button"
-              className="btn btn-primary boton" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+              className="btn btn-primary boton"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
               onClick={handleModalToggle}
 
             >
@@ -57,7 +60,9 @@ const ServiceCard = ({ title, image, description, price, linkTo }) => {
                   <div className="modal-footer">
                     <button
                       type="button"
-                      className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                      className="btn btn-secondary"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
                       onClick={handleModalToggle}
                     >
                       Close
