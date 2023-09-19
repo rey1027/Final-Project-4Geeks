@@ -6,9 +6,9 @@ const CardEspecialistas = ({especialista}) => {
 
 
   return (
-    <div className="">
-     hola
-    </div>
+      <div>
+        {especialista.nombre}
+      </div>
   );
 };
 
