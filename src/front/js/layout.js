@@ -13,6 +13,7 @@ import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
 import Registrar from "./pages/registrar.jsx";
 import Login from "./pages/login.jsx";
+import LCitas from "./pages/listacitas.jsx";
 import Citas from "./pages/solicitud.jsx";
 import Especialistas from "./pages/especialistas.jsx";
 
@@ -38,6 +39,7 @@ const Layout = () => {
             <Route element={<h1>Not found!</h1>} />
             <Route element={<Registrar />} path="/registrar" />
             <Route element={<Login />} path="/inicio-sesion" />
+            <Route element={<LCitas />} path="/listacitas" />
             <Route element={<Citas />} path="/citas" />
             <Route element={<Especialistas />} path="/especialistas" />
           </Routes>

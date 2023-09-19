@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/registro.css";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,14 +11,6 @@ const Login = () => {
   let navigate = useNavigate(""); //
 
   const login = async () => {
-    /*if (email == "") {
-      Swal.fire({
-        icon: "warning",
-        title: "Cuidado!",
-        text: "Debes ingresar el correo ",
-        timer: 3500,
-      });
-    }*/
     if (password == "") {
       Swal.fire({
         icon: "warning",
@@ -43,6 +35,7 @@ const Login = () => {
     if (response.ok) {
       let responseJson = await response.json();
       console.log(responseJson);
+      actions.setName(responseJson.nombre)
       Swal.fire({
         position: "center",
         icon: "success",
@@ -51,7 +44,8 @@ const Login = () => {
       });
       localStorage.setItem("token", responseJson.token);
       actions.activateLoginConfirmation();
-      navigate("/citas"); //Ruta a la que queremos ir
+      actions.setCurrentUser(responseJson.user);
+      navigate("/"); //Ruta a la que queremos ir
     } else {
       let responseJson = await response.json();
       console.log(responseJson);
@@ -113,7 +107,6 @@ const Login = () => {
         <div className="row ">
           <div className="col-lg-4 col-sm-2"></div>
           <div className="col-lg-4 col-sm-6 ">
-            <a>Olvide mi contraseña</a>
           </div>
           <div className="col-lg-4 col-sm-2"></div>
         </div>
