@@ -31,7 +31,6 @@ export const Tratamientos = (props) => {
           {store.tratamientos.slice(0, 5).map((item,i)=>(
           <ServiceCard
             key={i}
-            
             title = {item.nombre}
             image= {imagenesTratamientos[i]}
             description={item.descripcion}

@@ -49,14 +49,8 @@ export const Navbar = () => {
                   <a class="dropdown-item">Tratamientos</a>
                 </Link>
               </li>
-
               <li>
-                <Link to="/especialidades">
-                  <a class="dropdown-item">Especialidades</a>
-                </Link>
-              </li>
-              <li>
-                <Link to="/citas">
+                <Link to="/especialistas">
                   <a class="dropdown-item">Especialistas</a>
                 </Link>
               </li>
@@ -65,7 +59,6 @@ export const Navbar = () => {
                   <p className="dropdown-item" >Citas</p>
                 </Link>
               </li>
-
             </ul>
           </div>
           {store.current_user ? store.current_user.rol == "user" ? 
@@ -77,7 +70,7 @@ export const Navbar = () => {
           </>
           :
           <>
-          <Link to="/">
+          <Link to="/listacitas">
             <button className="btn mx-2 botones">Lista Citas</button>
           </Link> 
 

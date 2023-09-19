@@ -114,7 +114,7 @@ export const Citas = () => {
 
     };
 
-  return (
+  return store.current_user ? store.current_user.rol == "user" ?(
     <form className="needs-validation" onSubmit={handleSubmit} novalidate>
       <div className="Pagina ">
         <div className="row d-flex justify-content-center">
@@ -131,7 +131,7 @@ export const Citas = () => {
             <input
               className="form-control"
               id="inputName"
-              value={inputNombre.current}
+              value={store.current_user.nombre_completo}
               disabled
             />
           </div>
@@ -258,7 +258,20 @@ export const Citas = () => {
         </div>
       </div>
     </form>
+  ) 
+  : 
+  (
+    <div className="text-center mt-5">
+      <h1>Esta página es solo para Usuarios</h1>
+    </div>
+  )
+  :
+  (
+    <div className="text-center mt-5">
+      <h1>Debes iniciar sesión para visualizar la página</h1>
+    </div>
   );
+  
 };
 
 export default Citas;

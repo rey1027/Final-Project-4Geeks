@@ -4,28 +4,43 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/citas.css";
 //create your first component
-const Citas = (props) => {
+const LCitas = (props) => {
 	const { store, actions } = useContext(Context);
-	useEffect(()=>{
-		actions.obtenerCitas();
-	  }, [])
-	  console.log(store.listacitas);
+	console.log(store.citas)
+	 useEffect(()=>{
+	 	actions.obtenerCitas();
+	   }, [])
+	  //console.log(store.listacitas);
 	const [citas, setCitas] = useState("")
-	const [lista, setLista] = useState(["Cita Odontología General", "Cita En Odontopediatría","Cita De Ortodoncia","Cita De Extracción De Cordales"])
+	const [lista, setLista] = useState([])
+	
+	// const getTask = async () => {
+    //     try {
+    //         let response = await fetch(process.env.BACKEND_URL+ "/api/citas");
+    //         if (response.ok) {
+    //             let data = await response.json();
+    //             setLista(data);
+    //         }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // };
+    // useEffect(() => {
+    //     getTask();
+    // }, []);
+	// const handleInput = (e) => {
+	// 	let texto = e.target.value
+	// 	if (e.keyCode == 13) {
+	// 		setCitas(texto)
+	// 		//Una primera aproximación para agregar a la lista es usando una variable auxiliar
+	// 		//let tempArr = lista.slice() //copia de arreglo por valor
+	// 		//tempArr.push(texto)
+	// 		//setLista(tempArr)
 
-	const handleInput = (e) => {
-		let texto = e.target.value
-		if (e.keyCode == 13) {
-			setCitas(texto)
-			//Una primera aproximación para agregar a la lista es usando una variable auxiliar
-			//let tempArr = lista.slice() //copia de arreglo por valor
-			//tempArr.push(texto)
-			//setLista(tempArr)
-
-			//Una segunda aproximación es usando el operador spread ...
-			setLista([...lista, texto])
-		}
-	}
+	// 		//Una segunda aproximación es usando el operador spread ...
+	// 		setLista([...lista, texto])
+	// 	}
+	// }
 
 	const deleteCita = (index) => { 
 		let tempArr = lista.slice() //copiar el estado lista en una variable auxiliar
@@ -41,9 +56,10 @@ const Citas = (props) => {
 			<ul className="list-group">
 			<p className=" lista3 titulotodos ">citas próximas</p>
 			<input className=" lista2 list-group-item text-center" type="text reset"   placeholder="Escriba aquí"
-					onKeyUp={
-						(e) => { handleInput(e) }
-					} />
+					// onKeyUp= {
+					//  	(e) => { handleInput(e) }
+					//  } 
+					/>
 					
 			{
 						lista && lista.length > 0 ?
@@ -72,4 +88,4 @@ const Citas = (props) => {
 	);
 };
 
-export default Citas;
+export default LCitas;
