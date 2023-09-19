@@ -7,7 +7,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       current_user: null,
       nombre: '',
       tratamientos: [],
-    },
+      especialistas: [],
+		},
     actions: {
       // Use getActions to call a function within a fuction
       exampleFunction: () => {
@@ -146,8 +147,22 @@ const getState = ({ getStore, getActions, setStore }) => {
         //   console.log(responseJson);
         // }
 
+      },
+      
+      getEspecialistas: async() =>{
+        const store = getStore()
+        try {
+          const response = await fetch(process.env.BACKEND_URL+"/especialistas")
+          if(response.ok){
+            const data=await response.json()
+            setStore({
+              especialistas: data
+            })
+          }
+        } catch (error) {
+          
+        }
       }
-
     },
 
   };

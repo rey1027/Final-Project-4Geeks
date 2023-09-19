@@ -84,13 +84,8 @@ export const Home = () => {
                 clínica, nos enorgullece ofrecer una amplia gama de servicios
                 especializados para satisfacer todas tus necesidades dentales.
               </h4>
-              <Link to="/especialidades">
-                <a
-                  href="#"
-                  className="d-grid gap-2 col-4 boton3 btn btn-info mt-5"
-                >
+              <Link to="/especialidades" className="d-grid gap-2 col-4 boton3 btn btn-info mt-5">
                   <h5 className="text-dark">Ver más</h5>
-                </a>
               </Link>
             </div>
           </div>
@@ -114,13 +109,9 @@ export const Home = () => {
                 odontología. Están comprometidos con brindar la mejor atención
                 dental.
               </h4>
-              <Link to="/">
-                <a
-                  href="#"
-                  className="d-grid gap-2 col-4 boton2 btn btn-info mt-5"
-                >
+              <Link to="/especialistas" className="d-grid gap-2 col-4 boton2 btn btn-info mt-5">
+                  
                   <h5 className="text-dark">Ver más</h5>
-                </a>
               </Link>
             </div>
           </div>

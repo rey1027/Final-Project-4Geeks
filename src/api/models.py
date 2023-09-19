@@ -37,6 +37,10 @@ class Especialidad(db.Model): #Yolanda
     id = db.Column(db.Integer, primary_key=True)
     nombre_completo = db.Column(db.String(30), unique=True, nullable=False)
     descripcion = db.Column(db.String(255), unique=False, nullable=False)
+    especialistas = db.relationship('Especialistas', backref='especialidad', lazy=True)
+
+    def __repr__(self):
+        return f'<Especialidad {self.nombre_completo}>'
 
     def serialize(self):
         return{
@@ -56,13 +60,15 @@ class Especialistas(db.Model):
     especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
 
     def serialize(self):
+        especialidad=Especialidad.query.get(self.especialidad_id)
         return{
             "id":self.id, 
             "nombre":self.nombre_completo,
             "años_experiencia":self.años_experiencia,
             "perfil_profesional":self.perfil_profesional,
             "codigo_profesional":self.codigo_profesional,
-            "especialidad_id":self.especialidad_id
+            "especialidad_id":self.especialidad_id,
+            "nombre_de_especialidad": especialidad.nombre_completo
         }
 
 class Tratamientos(db.Model):
