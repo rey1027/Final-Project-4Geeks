@@ -77,7 +77,7 @@ export const Navbar = () => {
           </>
           :
           <>
-          <Link to="/">
+          <Link to="/listacitas">
             <button className="btn mx-2 botones">Lista Citas</button>
           </Link> 
 

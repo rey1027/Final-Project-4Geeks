@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import "../../styles/citas.css";
 //create your first component
-const Citas = (props) => {
+const LCitas = (props) => {
 	const { store, actions } = useContext(Context);
 	useEffect(()=>{
 		actions.obtenerCitas();
@@ -72,4 +72,4 @@ const Citas = (props) => {
 	);
 };
 
-export default Citas;
+export default LCitas;
