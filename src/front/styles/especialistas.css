@@ -1,13 +1,40 @@
 
-.RowCards{
-    width: 90%;
-    height: 300%;
-    margin: 1%;
-    padding-block-end: 3%;
-    padding-inline-start: 5%;
+.card{
+    width: 105%;
+    border-radius: 9%;
+    margin: 20px;
+    overflow: hidden;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    transition: all 400ms ease;
+    height: 300px;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
 }
 
 .Card{
-    background-color: darkcyan;
-    margin-top: 3%;
+    background-color: rgb(117, 199, 199);
+    display: flex;
+    align-items: center;
+}
+
+.col .card a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px;
+    margin-top: 5px;
+    color: rgb(112, 149, 204);
+    border: 1px solid rgb(112, 149, 204);
+    border-radius: 10px;
+    transition: all 400ms ease;
+    height: 40px;
+    left: 50%; /* Coloca el elemento en el centro horizontal del contenedor */
+    transform: translateX(-50%); /* Alinea el elemento horizontalmente en relación al centro del contenedor */
+}
+
+.col .card a:hover{
+   background:rgb(112, 149, 204); 
+   color: #fff;
 }
