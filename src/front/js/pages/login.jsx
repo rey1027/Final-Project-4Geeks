@@ -35,7 +35,7 @@ const Login = () => {
     if (response.ok) {
       let responseJson = await response.json();
       console.log(responseJson);
-      actions.setName(responseJson.nombre)
+      actions.setName(responseJson.nombre);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -68,7 +68,10 @@ const Login = () => {
 
         <div className="mb-3 row">
           <div className="col-4"></div>
-          <label for="inputEmail" className="col-sm-1 col-form-label atributos">
+          <label
+            htmlFor="inputEmail"
+            className="col-sm-1 col-form-label atributos"
+          >
             <b>Correo</b>
           </label>
           <div className="col-sm-4">
@@ -87,7 +90,7 @@ const Login = () => {
         <div className="mb-3 row">
           <div className="col-4"></div>
           <label
-            for="inputPassword"
+            htmlFor="inputPassword"
             className="col-sm-1 col-form-label atributos "
           >
             <b>Password</b>
@@ -106,8 +109,7 @@ const Login = () => {
         </div>
         <div className="row ">
           <div className="col-lg-4 col-sm-2"></div>
-          <div className="col-lg-4 col-sm-6 ">
-          </div>
+          <div className="col-lg-4 col-sm-6 "></div>
           <div className="col-lg-4 col-sm-2"></div>
         </div>
 

@@ -16,47 +16,60 @@ import carillas from "../../img/carillas.png";
 import especialista from "../../img/especialista.png";
 
 export const Tratamientos = (props) => {
-  const imagenesTratamientos = [chequeo, endodoncia, Opediatra,ortodoncia,LimpiezaD]
-  const imagenesTratamientos2 = [implanteD, extraccion, periodoncia,carillas,especialista]
+  const imagenesTratamientos = [
+    chequeo,
+    endodoncia,
+    Opediatra,
+    ortodoncia,
+    LimpiezaD,
+  ];
+  const imagenesTratamientos2 = [
+    implanteD,
+    extraccion,
+    periodoncia,
+    carillas,
+    especialista,
+  ];
   const { store, actions } = useContext(Context);
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     actions.obtenerTratamientos();
-  }, [])
+  }, []);
   console.log(store.tratamientos);
   return (
     <>
       <div className="jumbotron justify-content-center align-items-center ">
         <div className="row row-cols-3 row-cols-md-3 g-3 justify-content-center justify-items-center ">
-          {store.tratamientos.slice(0, 5).map((item,i)=>(
-          <ServiceCard
-            key={i}
-            title = {item.nombre}
-            image= {imagenesTratamientos[i]}
-            description={item.descripcion}
-            price= {item.precio}
-          />))}
-
+          {store.tratamientos.slice(0, 5).map((item, i) => (
+            <ServiceCard
+              key={i}
+              id={item.id}
+              title={item.nombre}
+              image={imagenesTratamientos[i]}
+              description={item.descripcion}
+              price={item.precio}
+            />
+          ))}
         </div>
         <br />
         <div className="row row-cols-3 row-cols-md-3 g-3 justify-content-center align-items-center ">
-        
-          {store.tratamientos.slice(5,10).map((item,i)=>(
-          <ServiceCard
-            key={i}
-            title = {item.nombre}
-            image= {imagenesTratamientos2[i]}
-            description={item.descripcion}
-            price= {item.precio}
-          />))}
-
+          {store.tratamientos.slice(5, 10).map((item, i) => (
+            <ServiceCard
+              key={i}
+              id={item.id}
+              title={item.nombre}
+              image={imagenesTratamientos2[i]}
+              description={item.descripcion}
+              price={item.precio}
+            />
+          ))}
         </div>
 
-        <Link to="/especialidades">
+        {/* <Link to="/especialidades">
           <span className="btn btn-primary btn-lg" href="#" role="button">
             Especialidades
           </span>
-        </Link>
+        </Link> */}
       </div>
     </>
   );
