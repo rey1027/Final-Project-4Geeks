@@ -15,12 +15,12 @@
 }
 
 .Card{
-    background-color: rgb(117, 199, 199);
-    display: flex;
+    background-color: rgb(112, 149, 204);
+    /* display: flex; */
     align-items: center;
 }
 
-.col .card a{
+.col .card button{
     display: inline-block;
     text-decoration: none;
     padding: 5px;
@@ -34,7 +34,20 @@
     transform: translateX(-50%); /* Alinea el elemento horizontalmente en relación al centro del contenedor */
 }
 
-.col .card a:hover{
+.col .card button:hover{
    background:rgb(112, 149, 204); 
    color: #fff;
+}
+
+.cerrar{
+    display: inline-block;
+    text-decoration: none;
+    padding: 5px;
+    margin-top: 5px;
+    color: white;
+    border: 1px solid rgb(112, 149, 204);
+    border-radius: 10px;
+    transition: all 400ms ease;
+    height: 40px;
+    background:rgb(112, 149, 204); 
 }

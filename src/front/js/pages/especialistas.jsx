@@ -12,7 +12,7 @@ export const Especialistas = (props) => {
 
   return (
     <> 
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <div className="Card row row-cols-lg-4 justify-content-center justify-items-center mb-3">
           {store.especialistas.map((item)=>{

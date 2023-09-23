@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "../../styles/home.css";
 import protesis from "../../img/protesis.png";
 import doc1 from "../../img/doc1.png";
-import g3 from "../../img/g3.png";
 import d5 from "../../img/d5.png";
 
 export const Home = () => {
@@ -34,7 +33,7 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="contenedor d-flex shadow-lg align-items-center">
+        <div className="contenedor d-flex align-items-center">
           <div className="row">
             <div className="col-lg-1 col-sm-12 p-4 text-white">
               <h1>+10</h1>
@@ -52,46 +51,17 @@ export const Home = () => {
                   Aquí encontrarás una amplia gama de servicios diseñados para
                   cuidar y mejorar tu salud bucal.
                 </h4>
-                <Link to="/tratamientos">
-                  <a
-                    href="#"
-                    className="d-grid gap-2 col-4 boton1 btn btn-info mt-5"
-                  >
-                    <h5 className="text-dark">Ver más</h5>
-                  </a>
+                <Link
+                  to="/tratamientos"
+                  className="d-grid gap-2 col-4 boton1 btn btn-info mt-5"
+                >
+                  <h5 className="text-dark fst-italic">Ver más</h5>
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="container-fluid">
-        <div className="row especialidades">
-          <div className="col-lg-6 col-sm-2 text-center mt-5">
-            <div></div>
-          </div>
-          <div className="col-lg-6 textoD text-dark col-sm-10 mt-5">
-            <p>
-              <h1 className="text-start mt-4">
-                <strong>Especialidades</strong>
-              </h1>
-            </p>
-            <div className="text-start fw-bol">
-              <h4>
-                Estamos encantados de invitarte a explorar nuestras
-                especialidades en el campo de la odontología. En nuestra
-                clínica, nos enorgullece ofrecer una amplia gama de servicios
-                especializados para satisfacer todas tus necesidades dentales.
-              </h4>
-              <Link to="/especialidades" className="d-grid gap-2 col-4 boton3 btn btn-info mt-5">
-                  <h5 className="text-dark">Ver más</h5>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br />
 
       <div className="container-fluid">
         <div className="row doctora">
@@ -106,18 +76,39 @@ export const Home = () => {
                 ¡Te invitamos a descubrir a nuestros especialistas en
                 odontología!. Contamos con un equipo de profesionales altamente
                 capacitados y especializados en diversas áreas de la
-                odontología. Están comprometidos con brindar la mejor atención
-                dental.
+                odontología.
               </h4>
-              <Link to="/especialistas" className="d-grid gap-2 col-4 boton2 btn btn-info mt-5">
-                  
-                  <h5 className="text-dark">Ver más</h5>
+              <Link
+                to="/especialistas"
+                className="d-grid gap-2 col-4 boton2 text-white btn btn-light mt-5"
+              >
+                <h5 className="text-dark fst-italic">Ver más</h5>
               </Link>
             </div>
           </div>
           <div className="col-lg-6 col-sm-5 text-center mt-5">
             <div>
               <img className="doc1 rounded" src={doc1} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div className="container-fluid">
+        <div className="row especialidades">
+          <div className="col-lg-12 textoD text-dark col-sm-10">
+            <p>
+              <h1 className="text-start mt-5">
+                <strong>Especialidades</strong>
+              </h1>
+            </p>
+            <div className="text-start fw-bol">
+              <h4>
+                En nuestra clínica, nos enorgullece ofrecer una amplia gama de
+                servicios especializados para satisfacer todas tus necesidades
+                dentales.
+              </h4>
             </div>
           </div>
         </div>
@@ -147,14 +138,15 @@ export const Home = () => {
               </h4>
               <a
                 href="#"
-                className="d-grid gap-2 col-lg-4 col-sm-2  boton4 btn btn-info mt-5"
+                className="d-grid gap-2 col-lg-4 col-sm-2  boton4 btn btn-light mt-5"
               >
-                <h5 className="text-dark">Solicitud de cita</h5>
+                <h5 className="text-dark fst-italic">Solicitud de cita</h5>
               </a>
             </div>
           </div>
         </div>
       </div>
+      <br />
 
       <div className="container-fluid mt-4 tecnologia pt-2">
         <div className="text-center mt-3">
@@ -215,7 +207,7 @@ export const Home = () => {
               </p>
             </div>
             <div className="card-footer">
-              <small className="text-muted">Solicite su cita</small>
+              <small className="text-muted ">Solicite su cita</small>
             </div>
           </div>
         </div>
