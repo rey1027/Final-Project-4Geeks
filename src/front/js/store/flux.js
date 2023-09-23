@@ -5,10 +5,11 @@ const getState = ({ getStore, getActions, setStore }) => {
       demo: [],
       loginConfirmation: false,
       current_user: null,
-      nombre: '',
+      nombre: "",
       tratamientos: [],
       especialistas: [],
       citas: [],
+      citaId: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -22,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
       getName: () => {
         const store = getStore();
-        return store.nombre
+        return store.nombre;
       },
 
       getMessage: async () => {
@@ -88,39 +89,31 @@ const getState = ({ getStore, getActions, setStore }) => {
         const actions = getActions();
 
         setStore({ ...store, loginConfirmation: false });
-
       },
       setCurrentUser: (user) => {
         const store = getStore();
 
         setStore({ ...store, current_user: user });
-
       },
 
-      isAuth: async() => {
+      isAuth: async () => {
         const store = getStore();
         const actions = getActions();
 
-        let response = await actions.fetchPromise(
-          "/api/isauth",
-          "GET"
-        );
-    
+        let response = await actions.fetchPromise("/api/isauth", "GET");
+
         if (response.ok) {
           let responseJson = await response.json();
           console.log(responseJson);
           setStore({ ...store, current_user: responseJson.user });
           actions.activateLoginConfirmation();
         }
-
       },
 
       obtenerTratamientos: () => {
-
         fetch(process.env.BACKEND_URL + "/api/tratamientos")
-
           .then((response) => response.json())
-          .then(data => setStore({ tratamientos: data }))
+          .then((data) => setStore({ tratamientos: data }));
 
         // if (response.ok) {
         //   let responseJson = response.json();
@@ -130,43 +123,63 @@ const getState = ({ getStore, getActions, setStore }) => {
         //   let responseJson = response.json();
         //   console.log(responseJson);
         // }
-
       },
-      obtenerCitas: () => {
+      obtenerCitas: async () => {
+        const store = getStore();
+        const actions = getActions();
+        let response = await actions.fetchPromise("/api/listacitas", "GET");
+        // fetch(process.env.BACKEND_URL + "/api/listacitas")
 
-        fetch(process.env.BACKEND_URL + "/api/citas")
+        //   .then((response) => response.json())
+        //   .then(data => console.log({ citas: data }))
 
-          .then((response) => response.json())
-          .then(data => console.log({ citas: data }))
+        if (response.ok) {
+          let responseJson = await response.json();
 
-
-        // if (response.ok) {
-        //   let responseJson = response.json();
-        //   setTratamientos(responseJson);
-        //   console.log(responseJson);
-        // } else {
-        //   let responseJson = response.json();
-        //   console.log(responseJson);
-        // }
-
-      },
-
-      getEspecialistas: async() =>{
-        const store = getStore()
-        try {
-          const response = await fetch(process.env.BACKEND_URL+"/especialistas")
-          if(response.ok){
-            const data=await response.json()
-            setStore({
-              especialistas: data
-            })
-          }
-        } catch (error) {
-          
+          setStore({ ...store, citas: responseJson });
+          console.log(responseJson);
+        } else {
+          let responseJson = await response.json();
+          console.log(responseJson);
         }
-      }
-    },
+      },
+      eliminarCita: (id) => {
+        const actions = getActions();
+        fetch(`${process.env.BACKEND_URL}/api/citas/${id}`, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Error al eliminar la cita");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            // La cita se ha eliminado exitosamente
+            console.log(data.message);
+            actions.obtenerCitas();
+          })
+          .catch((error) => {
+            // Ocurrió un error al eliminar la cita
+            console.error(error);
+          });
+      },
 
+      getEspecialistas: async () => {
+        const store = getStore();
+        try {
+          const response = await fetch(
+            process.env.BACKEND_URL + "/especialistas"
+          );
+          if (response.ok) {
+            const data = await response.json();
+            setStore({
+              especialistas: data,
+            });
+          }
+        } catch (error) {}
+      },
+    },
   };
 };
 

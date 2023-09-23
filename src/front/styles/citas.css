@@ -5,19 +5,23 @@
 }
 
 .botonX{
+    margin-left: 350px;
     border: none;
     background: none;
     height: 5px;
+    width: 100px;
     font-size: 15px;
 }
 .eliminar{
-    color: red;
-    text-justify: center;
+    color: rgb(255, 255, 255);
+    text-decoration-line: underline;
+    font-weight: bold;
+  
 }
 .lista2{
-    border-style: dashed ;
+    border-style: none;
     border-width: 3px;
-    border-color: rgb(141, 141, 223);
+    border-color: rgb(0, 21, 255);
     
 }
 .lista3{
@@ -28,7 +32,7 @@
 
 .lista{
     
-    border-style: dashed ;
+    border-style: none ;
     border-width: 3px;
     border-color: rgb(141, 141, 223);
     font-size: 19px;

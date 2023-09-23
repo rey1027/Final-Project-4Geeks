@@ -5,87 +5,76 @@ import { Context } from "../store/appContext";
 import "../../styles/citas.css";
 //create your first component
 const LCitas = (props) => {
-	const { store, actions } = useContext(Context);
-	console.log(store.citas)
-	 useEffect(()=>{
-	 	actions.obtenerCitas();
-	   }, [])
-	  //console.log(store.listacitas);
-	const [citas, setCitas] = useState("")
-	const [lista, setLista] = useState([])
-	
-	// const getTask = async () => {
-    //     try {
-    //         let response = await fetch(process.env.BACKEND_URL+ "/api/citas");
-    //         if (response.ok) {
-    //             let data = await response.json();
-    //             setLista(data);
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-    // useEffect(() => {
-    //     getTask();
-    // }, []);
-	// const handleInput = (e) => {
-	// 	let texto = e.target.value
-	// 	if (e.keyCode == 13) {
-	// 		setCitas(texto)
-	// 		//Una primera aproximación para agregar a la lista es usando una variable auxiliar
-	// 		//let tempArr = lista.slice() //copia de arreglo por valor
-	// 		//tempArr.push(texto)
-	// 		//setLista(tempArr)
+  const { store, actions } = useContext(Context);
+  console.log(store.citas);
+  useEffect(() => {
+    actions.obtenerCitas();
+  }, []);
+  const [citas, setCitas] = useState("");
+  const [lista, setLista] = useState([]);
 
-	// 		//Una segunda aproximación es usando el operador spread ...
-	// 		setLista([...lista, texto])
-	// 	}
-	// }
+  return (
+    <>
+      <div className="paper containercitas text-center justify-content-center justify-items-center">
+        <div className=" nota ">
+          <ul className="list-group">
+            <p className=" lista3 titulotodos ">citas próximas</p>
+            <input
+              className=" lista2 list-group-item text-center"
+              type="text reset"
+              // onKeyUp= {
+              //  	(e) => { handleInput(e) }
+              //  }
+            />
 
-	const deleteCita = (index) => { 
-		let tempArr = lista.slice() //copiar el estado lista en una variable auxiliar
-		tempArr = tempArr.filter((item, index2) => { return index2 != index })
-		setLista(tempArr)
-	}
-	
-	return (
-		<>
-        <div className="paper containercitas text-center justify-content-center justify-items-center">
-		
-					<div className=" nota ">
-			<ul className="list-group">
-			<p className=" lista3 titulotodos ">citas próximas</p>
-			<input className=" lista2 list-group-item text-center" type="text reset"   placeholder="Escriba aquí"
-					// onKeyUp= {
-					//  	(e) => { handleInput(e) }
-					//  } 
-					/>
-					
-			{
-						lista && lista.length > 0 ?
-							<>{
-								lista.map((item, index) => {
-									return <li className="lista text-center list-group-item" key={index}>
-										{item}
-										<button className="botonX" type="button" onClick={e => { deleteCita(index) }}>
-											<p className="eliminar">X</p>
-										</button>
-									</li>
-								})
-							}</>
-							: "la lista está vacía"
-					}
-					
-			</ul>
-			</div>
-				<p className="agregado">items left  {lista.length}</p> 
-			</div>
-			 
-			
-			
-			
-		</>
-	);
+            {store.citas && store.citas.length > 0 ? (
+              <>
+                {store.citas.map((item, i) => {
+                  return (
+                    <li className="lista text-center list-group-item" key={i}>
+                      <div className="list-group">
+                        <a
+                          href="#"
+                          className="list-group-item list-group-item-action active"
+                          aria-current="true"
+                        >
+                          <div className="d-flex w-100 justify-content-between">
+                            <h5 className="mb-1">{item.nombre}</h5>
+                            <small>Fecha Cita: {item.fecha}</small>
+                          </div>
+                          <p className="mb-1">
+                            Tratamiento: {item.tratamiento} <br /> Especialista:{" "}
+                            {item.especialista}
+                            <br />
+                            <small>Hora De La Cita : {item.hora}</small>
+                          </p>
+
+                          <button
+                            className="botonX"
+                            type="button"
+                            onClick={() => {
+                              actions.eliminarCita(item.id);
+                            }}
+                          >
+                            <p>
+                              <small className="eliminar">cancelar cita</small>
+                            </p>
+                          </button>
+                        </a>
+                      </div>
+                    </li>
+                  );
+                })}
+              </>
+            ) : (
+              "la lista está vacía"
+            )}
+          </ul>
+        </div>
+        <p className="agregado">citas canceladas {store.citas.length}</p>
+      </div>
+    </>
+  );
 };
 
 export default LCitas;

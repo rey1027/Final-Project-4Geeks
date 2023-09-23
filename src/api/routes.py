@@ -345,7 +345,7 @@ def delete_tratamiento(id):
 
 #-------------------------------------------------Citas------------------------------------------------------------------------
 
-@api.route('/citas', methods=['GET'])
+@api.route('/listacitas', methods=['GET'])
 @jwt_required()
 def obtener_citas():
     verification = verify_token(get_jwt()["jti"])
