@@ -71,7 +71,7 @@ const LCitas = (props) => {
             )}
           </ul>
         </div>
-        <p className="agregado">items left {store.citas.length}</p>
+        <p className="agregado">citas canceladas {store.citas.length}</p>
       </div>
     </>
   );
