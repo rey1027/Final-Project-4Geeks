@@ -60,10 +60,10 @@ def send_email(asunto, email_receptor,body):
         with smtplib.SMTP_SSL(smtp_address,smtp_port, context=context) as server:
             server.login(email_address,email_password)
             server.sendmail(email_address,email_receptor,mensaje.as_string)
-        return jsonify({"message":"Email enviado con exito"}) , 200 # Modificar
+        return True 
     except Exception as error:
         print(str(error))
-        return jsonify({"message":"Error al enviar el email"}) , 400 #Modificar 
+        return False 
 
 
 def verify_token(jti):
