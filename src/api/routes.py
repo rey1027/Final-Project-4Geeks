@@ -76,7 +76,11 @@ def verify_token(jti):
         return False #Esta bloqueado
 
 
-api = Blueprint('api', __name__)
+def generate_random_password():
+    caracteres = string.ascii_letters + string.digits
+    new_password = ''.join(random.choice(caracteres) for _ in range(8))
+    return new_password
+
 
 @api.route('/forgot_password', methods=['POST'])
 def forgot_password():
@@ -89,9 +93,9 @@ def forgot_password():
         user = User.query.filter_by(email=email_receptor).first()
 
         if user:
-            hashed_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
+            hashed_password = current_app.bcrypt.generate_password_hash(new_password,10).decode("utf-8")
             user.password = hashed_password
-            db.session,commmit()
+            db.session.commit()
 
             asunto = "Recuperación de contraseña"
             body = f"Tu nueva contraseña es: {new_password}"
@@ -102,11 +106,6 @@ def forgot_password():
             return jsonify({"message": "Dirección de correo electrónico no encontrada."}), 404
     else:
         return jsonify({"message": "Se requiere una dirección de correo electrónico válida para recuperar la contraseña."}), 400
-
-def generate_random_password():
-    caracteres = string.ascii_letters + string.digits
-    new_password = ''.join(random.choice(caracteres) for _ in range(8))
-    return new_password
 
 
 @api.route('/hello', methods=['POST', 'GET'])
