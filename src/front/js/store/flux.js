@@ -51,7 +51,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         //reset the global store
         setStore({ demo: demo });
       },
-      fetchPromise: async (path, metodo = "GET", data = null) => {
+      fetchPromise: async (path, metodo, data = null) => {
         const BASE_URL = process.env.BACKEND_URL;
         let url = BASE_URL + path;
 

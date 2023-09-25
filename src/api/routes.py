@@ -98,7 +98,7 @@ def forgot_password():
             db.session.commit()
 
             asunto = "Recuperación de contraseña"
-            body = f"Tu nueva contraseña es: {new_password}"
+            body = "Tu nueva contraseña es: {new_password}"
             send_email(asunto, email_receptor, body)
 
             return jsonify({"message": "Se ha enviado una nueva contraseña por correo electrónico."}), 200

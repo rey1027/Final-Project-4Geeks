@@ -6,10 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 const Password = () => {
   const [email, setEmail] = useState("");
-  const { actions } = useContext(Context);
+  const { actions,store } = useContext(Context);
   const navigate = useNavigate();
 
-  const login = () => {
+  const resetpassword = async() => {
     if (email === "") {
       Swal.fire({
         icon: "warning",
@@ -19,42 +19,39 @@ const Password = () => {
       });
       return;
     }
-
-    const obj = {
-      email: email,
+    
+    let obj = {
+      email: email
     };
 
-    fetch("/forgot_password", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(obj),
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("Error en la solicitud");
-        }
-      })
-      .then((responseData) => {
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: responseData.message,
-          timer: 2500,
-        });
-        navigate("/inicio-sesion"); // Redirige a la ruta deseada
-      })
-      .catch((error) => {
-        console.error("Error en la solicitud:", error);
-        Swal.fire({
-          icon: "error",
-          title: "Error en la solicitud",
-          timer: 3500,
-        });
+    let response = await actions.fetchPromise(
+      "/api/forgot_password",
+      "POST",
+      obj
+    );
+
+    if (response.ok) {
+      let responseJson = await response.json();
+      console.log(responseJson);
+      actions.setName(responseJson.nombre);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: responseJson.message,
+        timer: 2500,
       });
+      navigate("/inicio-sesion"); //Ruta a la que queremos ir
+    } else {
+      let responseJson = await response.json();
+      console.log(responseJson);
+      Swal.fire({
+        icon: "error",
+        title: responseJson.message,
+        text: "Error en la validación del usuario!",
+        timer: 3500,
+      });
+    }
+    return;
   };
 
   return (
@@ -88,7 +85,7 @@ const Password = () => {
           <button
             type="button"
             className="btn botonR fs-5 mt-4"
-            onClick={login}
+            onClick={resetpassword}
           >
             <b>Enviar Correo</b>
           </button>

@@ -35,7 +35,7 @@ const Login = () => {
     if (response.ok) {
       let responseJson = await response.json();
       console.log(responseJson);
-      actions.setName(responseJson.nombre)
+      actions.setName(responseJson.nombre);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -107,7 +107,7 @@ const Login = () => {
         <div className="row ">
           <div className="col-lg-4 col-sm-2"></div>
           <div className="col-lg-4 col-sm-6 ">
-            <a>Olvide mi contraseña</a>
+            <Link to="/password">Olvide mi contraseña</Link>
           </div>
           <div className="col-lg-4 col-sm-2"></div>
         </div>
