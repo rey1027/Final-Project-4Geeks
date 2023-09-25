@@ -11,6 +11,8 @@ from flask_jwt_extended import jwt_required
 
 #Librerias para email
 
+import random 
+import string
 import smtplib, ssl
 import os
 from email.mime.text import MIMEText
@@ -19,11 +21,11 @@ from datetime import datetime
 from email.mime.base import MIMEBase
 from email import encoders
 
+
 smtp_address = os.getenv("SMTP_ADDRESS")
 smtp_port = os.getenv("SMTP_PORT")
 email_address = os.getenv("EMAIL_ADDRESS")
 email_password = os.getenv("EMAIL_PASSWORD")
- 
 
 api = Blueprint('api', __name__)
 
@@ -72,6 +74,40 @@ def verify_token(jti):
         return True #No esta bloqueado
     else:
         return False #Esta bloqueado
+
+
+api = Blueprint('api', __name__)
+
+@api.route('/forgot_password', methods=['POST'])
+def forgot_password():
+    data = request.get_json()
+    email_receptor = data.get("email")
+    
+    if email_receptor:
+        new_password = generate_random_password()
+
+        user = User.query.filter_by(email=email_receptor).first()
+
+        if user:
+            hashed_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
+            user.password = hashed_password
+            db.session,commmit()
+
+            asunto = "Recuperación de contraseña"
+            body = f"Tu nueva contraseña es: {new_password}"
+            send_email(asunto, email_receptor, body)
+
+            return jsonify({"message": "Se ha enviado una nueva contraseña por correo electrónico."}), 200
+        else:
+            return jsonify({"message": "Dirección de correo electrónico no encontrada."}), 404
+    else:
+        return jsonify({"message": "Se requiere una dirección de correo electrónico válida para recuperar la contraseña."}), 400
+
+def generate_random_password():
+    caracteres = string.ascii_letters + string.digits
+    new_password = ''.join(random.choice(caracteres) for _ in range(8))
+    return new_password
+
 
 @api.route('/hello', methods=['POST', 'GET'])
 @jwt_required()
@@ -195,6 +231,7 @@ def log_out():
     user = User.query.filter_by(email=email).first().serialize()
     return jsonify({"token":access_token, "nombre":user["nombre_completo"]}), 200
 
+        
 #Rutas realizadas por Glenda 
 
 #-------------------------------------------------------ESPECIALIDADES--------------------------------------------------------------
