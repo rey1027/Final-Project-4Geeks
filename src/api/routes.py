@@ -30,6 +30,7 @@ email_password = os.getenv("EMAIL_PASSWORD")
 api = Blueprint('api', __name__)
 
 def send_email(asunto, email_receptor,body):
+    
     mensaje= MIMEMultipart("alternativo")
     mensaje["Subject"] = asunto
     mensaje['From']= email_address
@@ -37,7 +38,6 @@ def send_email(asunto, email_receptor,body):
 
     # Version HTML
     html = '''
-    bandera ? 
     <html>
     <body>
     <div>
@@ -61,7 +61,7 @@ def send_email(asunto, email_receptor,body):
         context= ssl.create_default_context()
         with smtplib.SMTP_SSL(smtp_address,smtp_port, context=context) as server:
             server.login(email_address,email_password)
-            server.sendmail(email_address,email_receptor,mensaje.as_string)
+            server.sendmail(email_address,email_receptor,mensaje.as_string())
         return True 
     except Exception as error:
         print(str(error))
@@ -98,7 +98,7 @@ def forgot_password():
             db.session.commit()
 
             asunto = "Recuperación de contraseña"
-            body = "Tu nueva contraseña es: {new_password}"
+            body = f"Su nueva contraseña es: {new_password}"
             send_email(asunto, email_receptor, body)
 
             return jsonify({"message": "Se ha enviado una nueva contraseña por correo electrónico."}), 200
