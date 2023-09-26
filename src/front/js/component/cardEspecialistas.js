@@ -22,7 +22,7 @@ const CardEspecialistas = ({ especialista }) => {
             {especialista.años_experiencia} años
           </h6>
           <button
-            className="text-center"
+            className="text-center myButtonC"
             data-bs-toggle="modal"
             data-bs-target={"#especialista-" + especialista.id}
             style={{ position: "absolute", bottom: "0" }}
@@ -35,7 +35,7 @@ const CardEspecialistas = ({ especialista }) => {
       <div
         className="modal fade"
         id={"especialista-" + especialista.id}
-        tabindex="-1"
+        tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >

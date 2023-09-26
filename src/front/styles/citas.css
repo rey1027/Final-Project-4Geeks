@@ -1,61 +1,68 @@
-.paper{
-    padding-top: 8px;
-    padding-bottom: 100px;
-    
+.paper {
+  padding-top: 8px;
+  padding-bottom: 100px;
+}
+/* .lista3 {
+  border-style: dotted;
+  border-width: 5px;
+  border-color: rgb(141, 141, 223);
+} */
+
+.lista {
+  border-style: none;
+  border-width: 3px;
+  border-color: rgb(141, 141, 223);
+  font-size: 19px;
+  color: rgba(125, 157, 206, 0.699);
+  /* text-shadow: 1px 1px rgb(185, 185, 185); */
+}
+.containercitas {
+  max-width: 500px;
+  margin: 0 auto; /* Esto centra el contenedor horizontalmente */
+  /* width: 500px;
+  border: solid rgba(218, 203, 203, 0.329); */
+  margin-top: 50px;
+}
+.agregado {
+  float: left;
+  color: rgb(63, 61, 61);
+}
+.titulotodos {
+  font-size: 3rem;
+  color: rgb(0, 116, 170);
+  text-shadow: 1px 1px rgb(0, 141, 197);
+}
+input {
+  border: white;
+}
+.caja {
+  background: no-repeat center/150%
+    url("https://guelphdental.com/static/media/landingPageImage.5e08e49d59ecd3a9f6f8.jpeg");
+  z-index: 100;
+  background-size: cover;
+}
+.citaS {
+  background-color: rgba(169, 215, 247, 0.925);
 }
 
-.botonX{
-    margin-left: 350px;
-    border: none;
-    background: none;
-    height: 5px;
-    width: 100px;
-    font-size: 15px;
+.CancelarC {
+  box-shadow: 2px 12px 14px -7px #832118;
+  background: linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+  background-color: #c62d1f;
+  border-radius: 9px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 3px 20px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #810e05;
 }
-.eliminar{
-    color: rgb(255, 255, 255);
-    text-decoration-line: underline;
-    font-weight: bold;
-  
+.CancelarC:hover {
+  background: linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+  background-color: #f24437;
 }
-.lista2{
-    border-style: none;
-    border-width: 3px;
-    border-color: rgb(0, 21, 255);
-    
-}
-.lista3{
-    border-style: dotted;
-    border-width: 5px;
-    border-color: rgb(141, 141, 223);
-}
-
-.lista{
-    
-    border-style: none ;
-    border-width: 3px;
-    border-color: rgb(141, 141, 223);
-    font-size: 19px;
-    color:  rgba(125, 157, 206, 0.699);
-    text-shadow: 1px 1px black;
-}
-.containercitas{
-    max-width: 500px;
-    margin: 0 auto; /* Esto centra el contenedor horizontalmente */
-    /*width: 500px;
-    border: solid rgba(218, 203, 203, 0.329) ;*/
-    margin-top: 50px;
-}
-.agregado{
-    float: left;
-    color: gray;
-}
-.titulotodos{
-    font-size: 4rem;
-    color: rgba(125, 157, 206, 0.699);
-    text-shadow: 1px 1px black;
-}
-input{
-border: white;
-
+.CancelarC:active {
+  position: relative;
+  top: 1px;
 }

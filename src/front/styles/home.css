@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-shadow: 1px 0 rgb(203, 233, 220)
+  text-shadow: 1px 0 rgb(203, 233, 220);
 }
 
 .us {
@@ -50,19 +50,53 @@
 }
 
 .doctora {
-  background-color:rgb(112, 149, 204);
+  background-color: rgb(112, 149, 204);
 }
 
-.doc1 {
-  height: 600px;
-  max-width: 400px;
-  width: 100%;
+.boton1 {
+  box-shadow: 0px 10px 14px -33px #dcecfb;
+  background: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+  background-color: #bddbfa;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #545eee;
+  font-size: 18px;
+  font-style: italic;
+  padding: 9px 26px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528ecc;
+}
+.boton1:hover {
+  background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+  background-color: #80b5ea;
+}
+.boton1:active {
+  position: relative;
+  top: 1px;
 }
 
 .boton2 {
-  background-color: #f0c1ea;
-  background: #f0c1ea;
-  border-color: #f0c1ea;
+  box-shadow: 0px 10px 14px -33px #efdcfb;
+  background: linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
+  background-color: #dfbdfa;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #770ba1;
+  font-size: 18px;
+  font-style: italic;
+  padding: 9px 26px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #8026c5;
+}
+.boton2:hover {
+  background: linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
+  background-color: #bc80ea;
+}
+.boton2:active {
+  position: relative;
+  top: 1px;
 }
 
 .d5 {
@@ -104,9 +138,26 @@
 }
 
 .boton4 {
-  background-color: #dbd35a;
-  background: #e9e77f;
-  border-color: #b1a612;
+  box-shadow: 0px 10px 14px -33px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-size: 18px;
+  font-style: italic;
+  padding: 9px 26px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66;
+}
+.boton4:hover {
+  background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+  background-color: #ffab23;
+}
+.boton4:active {
+  position: relative;
+  top: 1px;
 }
 
 .tecnologia {

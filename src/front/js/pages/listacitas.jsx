@@ -15,63 +15,64 @@ const LCitas = (props) => {
 
   return (
     <>
-      <div className="paper containercitas text-center justify-content-center justify-items-center">
-        <div className=" nota ">
-          <ul className="list-group">
-            <p className=" lista3 titulotodos ">citas próximas</p>
-            <input
-              className=" lista2 list-group-item text-center"
-              type="text reset"
-              // onKeyUp= {
-              //  	(e) => { handleInput(e) }
-              //  }
-            />
+      <div className="container-fluid caja">
+        <div className="paper containercitas">
+          <div className="nota">
+            <ul className="list-group">
+              <p className="titulotodos fst-italic ">Próximas Citas:</p>
+              {/* <input className="list-group-item text-center" type="text reset" /> */}
 
-            {store.citas && store.citas.length > 0 ? (
-              <>
-                {store.citas.map((item, i) => {
-                  return (
-                    <li className="lista text-center list-group-item" key={i}>
-                      <div className="list-group">
-                        <a
-                          href="#"
-                          className="list-group-item list-group-item-action active"
-                          aria-current="true"
-                        >
-                          <div className="d-flex w-100 justify-content-between">
-                            <h5 className="mb-1">{item.nombre}</h5>
-                            <small>Fecha Cita: {item.fecha}</small>
-                          </div>
-                          <p className="mb-1">
-                            Tratamiento: {item.tratamiento} <br /> Especialista:{" "}
-                            {item.especialista}
-                            <br />
-                            <small>Hora De La Cita : {item.hora}</small>
-                          </p>
-
-                          <button
-                            className="botonX"
-                            type="button"
-                            onClick={() => {
-                              actions.eliminarCita(item.id);
-                            }}
+              {store.citas && store.citas.length > 0 ? (
+                <>
+                  {store.citas.map((item, i) => {
+                    return (
+                      <li
+                        className="lista text-center list-group-item shadow-lg p-3 mb-5 bg-body rounded"
+                        key={i}
+                      >
+                        <div className=""></div>
+                        <div className="list-group">
+                          <a
+                            className="list-group-item list-group-item-action citaS"
+                            aria-current="true"
                           >
-                            <p>
-                              <small className="eliminar">cancelar cita</small>
+                            <div className="d-flex w-100 justify-content-between">
+                              <h5 className="mb-1 fst-italic">
+                                <strong>{item.nombre}</strong>
+                              </h5>
+                              <small>
+                                <strong>Fecha: {item.fecha}</strong>
+                              </small>
+                            </div>
+                            <p className="mb-1">
+                              Tratamiento: {item.tratamiento} <br />{" "}
+                              Especialista: {item.especialista}
+                              <br />
+                              <small>Hora: {item.hora}</small>
                             </p>
-                          </button>
-                        </a>
-                      </div>
-                    </li>
-                  );
-                })}
-              </>
-            ) : (
-              "la lista está vacía"
-            )}
-          </ul>
+
+                            <button
+                              className="CancelarC"
+                              type="button"
+                              onClick={() => {
+                                actions.eliminarCita(item.id);
+                              }}
+                            >
+                              <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                          </a>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </>
+              ) : (
+                "la lista está vacía"
+              )}
+            </ul>
+          </div>
+          <p className="agregado">Citas canceladas {store.citas.length}</p>
         </div>
-        <p className="agregado">citas canceladas {store.citas.length}</p>
       </div>
     </>
   );

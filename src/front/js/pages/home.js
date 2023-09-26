@@ -33,7 +33,7 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="contenedor d-flex align-items-center">
+        <div className="contenedor d-flex align-items-center rounded">
           <div className="row">
             <div className="col-lg-1 col-sm-12 p-4 text-white">
               <h1>+10</h1>
@@ -47,15 +47,14 @@ export const Home = () => {
             <div className="col-lg-5 col-sm-12">
               <div className=" mt-5 text-md-start p-5 text-white fw-bol">
                 <h4>
-                  {" "}
                   Aquí encontrarás una amplia gama de servicios diseñados para
                   cuidar y mejorar tu salud bucal.
                 </h4>
                 <Link
                   to="/tratamientos"
-                  className="d-grid gap-2 col-4 boton1 btn btn-info mt-5"
+                  className="d-grid gap-2 col-4 boton1 mt-5"
                 >
-                  <h5 className="text-dark fst-italic">Ver más</h5>
+                  <h5 className="fst-italic">Ver más</h5>
                 </Link>
               </div>
             </div>
@@ -80,9 +79,9 @@ export const Home = () => {
               </h4>
               <Link
                 to="/especialistas"
-                className="d-grid gap-2 col-4 boton2 text-white btn btn-light mt-5"
+                className="d-grid gap-2 col-4 boton2  mt-5"
               >
-                <h5 className="text-dark fst-italic">Ver más</h5>
+                <h5 className="fst-italic">Ver más</h5>
               </Link>
             </div>
           </div>
@@ -138,9 +137,9 @@ export const Home = () => {
               </h4>
               <a
                 href="#"
-                className="d-grid gap-2 col-lg-4 col-sm-2  boton4 btn btn-light mt-5"
+                className="d-grid gap-2 col-lg-4 col-sm-5 boton4 mt-5"
               >
-                <h5 className="text-dark fst-italic">Solicitud de cita</h5>
+                <h5 className="fst-italic">Solicitud de cita</h5>
               </a>
             </div>
           </div>
