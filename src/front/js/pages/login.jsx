@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/registro.css";
+import "../../styles/login.css";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -61,7 +61,50 @@ const Login = () => {
 
   return (
     <>
-      <div className="Login ">
+      <form id="msform">
+        {/* <ul id="progressbar">
+            <li className="active">Account Setup</li>
+            <li>Social Profiles</li>
+            <li>Personal Details</li>
+          </ul> */}
+
+        <fieldset>
+          <h2 className="fs-title">Iniciar Sesión</h2>
+          <h3 className="fs-subtitle">Completa lo siguiente</h3>
+          <input
+            type="text"
+            name="email"
+            id="inputEmail"
+            placeholder="Email : name@example.com"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          {/* <input
+            type="password"
+            name="pass"
+            placeholder="Escribe Tu Contraseña "
+          /> */}
+          <input
+            type="password"
+            name="cpass"
+            id="inputPassword"
+            placeholder="Escribe Tu Contraseña"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <input
+            type="button"
+            name="next"
+            className="next action-button"
+            value="Ingresar"
+            onClick={login}
+          />
+        </fieldset>
+      </form>
+
+      {/* <div className="Login ">
         <div className="row d-flex justify-content-center">
           <h1 className="d-flex justify-content-center titulo "></h1>
         </div>
@@ -126,7 +169,7 @@ const Login = () => {
           </div>
           <div className="col-lg-5 col-sm-3"></div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
