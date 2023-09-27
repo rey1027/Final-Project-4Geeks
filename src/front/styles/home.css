@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-shadow: 1px 0 rgb(203, 233, 220)
 }
 
 .us {
@@ -49,7 +50,7 @@
 }
 
 .doctora {
-  background-color: #4143a7;
+  background-color:rgb(112, 149, 204);
 }
 
 .doc1 {
@@ -59,9 +60,9 @@
 }
 
 .boton2 {
-  background-color: #d8aed3;
-  background: #d8aed3;
-  border-color: #9182c4;
+  background-color: #f0c1ea;
+  background: #f0c1ea;
+  border-color: #f0c1ea;
 }
 
 .d5 {
@@ -83,12 +84,11 @@
 }
 
 .especialidades {
-  background: no-repeat left/100%
+  background: no-repeat center/100%
     url("https://williamrclydedds.com/wp-content/uploads/b2b/stock/v2/bigstock/bigstock-Dental-Visit-41142844.jpg?w=1440&h=1080&a=t");
   z-index: 100;
-  background-size: contain;
-  margin-top: 1%;
-  background-color: #fcf9c4;
+  background-size: cover;
+  /* background-color: #fcf9c4; */
 }
 
 .textoD {
@@ -96,14 +96,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 1%;
-  padding: 5%;
-}
-
-.boton3 {
-  background-color: #e4d963;
-  background: #d8cd4f;
-  border-color: #d8c8aa;
+  height: 500px;
 }
 
 .solicitud {
@@ -130,5 +123,5 @@
 }
 
 .footerF {
-  background-color: #9ac8e7;
+  background-color: #64a7d3;
 }
