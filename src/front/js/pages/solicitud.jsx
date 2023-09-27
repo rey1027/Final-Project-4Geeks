@@ -73,7 +73,8 @@ export const Citas = () => {
       event.preventDefault();
 
       let obj = {
-        nombre: inputNombre.current,
+        nombre: store.current_user.nombre_completo,
+        email: store.current_user.email,
         fecha: inputDate.current.value,
         hora: inputTime.current.value,
         especialidad_id: inputEspecialidades.current.value,
@@ -186,6 +187,7 @@ export const Citas = () => {
             <option value=""> -- Selecione una especialidad -- </option>
             {
               especialidades.map(x => {
+                
                 return <option value={x.id}>{x.nombre}</option>
               })
             }
@@ -203,6 +205,7 @@ export const Citas = () => {
           <select className="form-select" onChange={handleEspecialistaChange} required
           ref={inputEspecialistas}>
             {
+
               especialistas.length == 0 ?
               <option value=""> {msjEspecialidad} </option> :
               <><option value=""> -- Selecione un especialista -- </option>

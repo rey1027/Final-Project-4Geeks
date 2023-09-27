@@ -47,7 +47,7 @@ def send_email(asunto, email_receptor,body):
     ''' + body +'''
     <p> Cualquier duda o consulta no dude en contactarnos, que estamos para servirle </p>
 
-    <h5>Saludos</h5>
+    <h4>Saludos</h4>
     </div>
     </body>
     </html>
@@ -404,22 +404,39 @@ def create_cita():
         nombre_paciente=data['nombre'],
         fecha=data['fecha'],
         hora=data['hora'],
-        especialidad_id=data['especialidad_id'],
         tratamientos_id=data['tratamientos_id'],
         especialistas_id=data['especialistas_id']
     )
+    email_receptor= data["email"]
 
-    especialidad = Especialidad.query.get(nueva_cita.especialidad_id)
+
     tratamiento = Tratamientos.query.get(nueva_cita.tratamientos_id)
     especialista = Especialistas.query.get(nueva_cita.especialistas_id)
-    if especialidad is None:
-        return jsonify({'error': 'Especialidad no encontrada'}), 404
-    elif tratamiento is None:
+    trata = Tratamientos.query.filter_by(id=nueva_cita.tratamientos_id).first().serialize()
+    doctor = Especialistas.query.filter_by(id=nueva_cita.especialistas_id).first().serialize()
+
+    print(trata)
+    print(doctor)
+
+    if tratamiento is None:
         return jsonify({'error': 'Tratamiento no encontrado'}), 404
     elif especialista is None:
         return jsonify({'error': 'Especialista no encontrado'}), 404
+    
+
+    asunto = "Confirmación de citas"
+    body = '''Usted reservo una cita con los siguientes datos:
+                <p><b>Nombre del paciente:</b>'''+ data["nombre"]+'''</p>
+                <p><b>Fecha de la cita:</b> ''' + data["fecha"] +'''</p>
+                <p><b>Hora de la cita:</b> ''' + data ["hora"] +'''</p>
+                <p><b>Tratamiento:</b>''' + trata['nombre'] +  '''</p>
+                <p><b>Especialidad:</b>''' + doctor['nombre_de_especialidad']+ '''</p>
+                <p><b>Especialista:</b>'''+ doctor["nombre"] + '''</p>
+            '''
+    
 
     try:
+        send_email(asunto, email_receptor, body)
         db.session.add(nueva_cita)
         db.session.commit()
     except:
