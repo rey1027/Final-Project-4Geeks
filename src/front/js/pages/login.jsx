@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/registro.css";
+import "../../styles/login.css";
 import Swal from "sweetalert2";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -61,14 +61,51 @@ const Login = () => {
 
   return (
     <>
-      <div className="Login ">
+      <form id="msform">
+        
+        <fieldset>
+          <h2 className="fs-title">Iniciar Sesión</h2>
+          <h3 className="fs-subtitle">Completa lo siguiente</h3>
+          <input
+            type="text"
+            name="email"
+            id="inputEmail"
+            placeholder="Email : name@example.com"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <input
+            type="password"
+            name="cpass"
+            id="inputPassword"
+            placeholder="Escribe Tu Contraseña"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <Link to="/password">Olvide mi contraseña</Link>
+          <input
+            type="button"
+            name="next"
+            className="next action-button"
+            value="Ingresar"
+            onClick={login}
+          />
+        </fieldset>
+      </form>
+
+      {/* <div className="Login ">
         <div className="row d-flex justify-content-center">
           <h1 className="d-flex justify-content-center titulo "></h1>
         </div>
 
         <div className="mb-3 row">
           <div className="col-4"></div>
-          <label for="inputEmail" className="col-sm-1 col-form-label atributos">
+          <label
+            htmlFor="inputEmail"
+            className="col-sm-1 col-form-label atributos"
+          >
             <b>Correo</b>
           </label>
           <div className="col-sm-4">
@@ -87,7 +124,7 @@ const Login = () => {
         <div className="mb-3 row">
           <div className="col-4"></div>
           <label
-            for="inputPassword"
+            htmlFor="inputPassword"
             className="col-sm-1 col-form-label atributos "
           >
             <b>Password</b>
@@ -109,6 +146,7 @@ const Login = () => {
           <div className="col-lg-4 col-sm-6 ">
             <Link to="/password">Olvide mi contraseña</Link>
           </div>
+          <div className="col-lg-4 col-sm-6 "></div>
           <div className="col-lg-4 col-sm-2"></div>
         </div>
 
@@ -125,7 +163,7 @@ const Login = () => {
           </div>
           <div className="col-lg-5 col-sm-3"></div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

@@ -29,10 +29,10 @@ export const Navbar = () => {
           </span>
         </Link>
         <div className="ml-auto">
-          <div class="btn-group">
+          <div className="btn-group">
             <button
               type="button"
-              class="btn botones mx-2 dropdown-toggle"
+              className="btn botones mx-2 dropdown-toggle"
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
