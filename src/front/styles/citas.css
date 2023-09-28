@@ -40,6 +40,7 @@ input {
     url("https://guelphdental.com/static/media/landingPageImage.5e08e49d59ecd3a9f6f8.jpeg");
   z-index: 100;
   background-size: cover;
+  background-attachment: fixed;
 }
 .citaS {
   background-color: rgba(169, 215, 247, 0.925);

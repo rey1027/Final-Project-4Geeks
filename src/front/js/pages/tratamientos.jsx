@@ -38,7 +38,7 @@ export const Tratamientos = (props) => {
   console.log(store.tratamientos);
   return (
     <>
-      <div className="jumbotron justify-content-center align-items-center ">
+      <div className="FondoD jumbotron justify-content-center align-items-center ">
         <div className="row row-cols-3 row-cols-md-3 g-3 justify-content-center justify-items-center ">
           {store.tratamientos.slice(0, 5).map((item, i) => (
             <ServiceCard
