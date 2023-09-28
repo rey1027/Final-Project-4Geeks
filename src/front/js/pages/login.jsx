@@ -84,7 +84,6 @@ const Login = () => {
               setPassword(e.target.value);
             }}
           />
-          <Link to="/password">Olvide mi contraseña</Link>
           <input
             type="button"
             name="next"
@@ -92,78 +91,10 @@ const Login = () => {
             value="Ingresar"
             onClick={login}
           />
+          <br></br>
+          <Link to="/password"><p className="d-flex text-content-start password">Olvidé mi contraseña</p></Link>
         </fieldset>
       </form>
-
-      {/* <div className="Login ">
-        <div className="row d-flex justify-content-center">
-          <h1 className="d-flex justify-content-center titulo "></h1>
-        </div>
-
-        <div className="mb-3 row">
-          <div className="col-4"></div>
-          <label
-            htmlFor="inputEmail"
-            className="col-sm-1 col-form-label atributos"
-          >
-            <b>Correo</b>
-          </label>
-          <div className="col-sm-4">
-            <input
-              type="email"
-              className="form-control"
-              id="inputEmail"
-              placeholder="name@example.com"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-          </div>
-          <div className="col-3"></div>
-        </div>
-        <div className="mb-3 row">
-          <div className="col-4"></div>
-          <label
-            htmlFor="inputPassword"
-            className="col-sm-1 col-form-label atributos "
-          >
-            <b>Password</b>
-          </label>
-          <div className="col-sm-4">
-            <input
-              type="password"
-              className="form-control"
-              id="inputPassword"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </div>
-          <div className="col-3"></div>
-        </div>
-        <div className="row ">
-          <div className="col-lg-4 col-sm-2"></div>
-          <div className="col-lg-4 col-sm-6 ">
-            <Link to="/password">Olvide mi contraseña</Link>
-          </div>
-          <div className="col-lg-4 col-sm-6 "></div>
-          <div className="col-lg-4 col-sm-2"></div>
-        </div>
-
-        <div className="row ">
-          <div className="col-lg-5 col-sm-3"></div>
-          <div className="col-lg-2 col-sm-6 d-flex justify-content-center">
-            <button
-              type="button"
-              className="btn botonR fs-5 mt-4"
-              onClick={login}
-            >
-              <b>Iniciar Sesión</b>
-            </button>
-          </div>
-          <div className="col-lg-5 col-sm-3"></div>
-        </div>
-      </div> */}
     </>
   );
 };

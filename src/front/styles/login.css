@@ -6,9 +6,6 @@
 
 html {
 	height: 100%;
-	/*Image only BG fallback*/
-	
-	/*background = gradient + image pattern combo*/
 	
 }
 
@@ -83,6 +80,9 @@ body {
 	margin-bottom: 20px;
 }
 
+.password{
+	font-size: smaller;
+}
 
 
 
