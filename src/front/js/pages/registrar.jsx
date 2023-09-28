@@ -67,116 +67,132 @@ const Registrar = () => {
 
   return (
     <>
-      <div className="Pagina ">
-        <div className="row d-flex justify-content-center">
-          <h1 className="d-flex justify-content-center titulo ">
-            Registro de Usuario
-          </h1>
-        </div>
-        <div className="mb-3 row">
-          <div className="col-4"></div>
-          <label for="inputName" className="col-sm-1 col-form-label atributos ">
-            <b>Nombre</b>
-          </label>
-          <div className="col-sm-4">
-            <input
-              className="form-control"
-              id="inputName"
-              onChange={(e) => {
-                setNombre(e.target.value);
-              }}
-              placeholder="Nombre Completo"
-            />
+      <div className="General container-fluid">
+        <br />
+        <div className="Pagina">
+          <div className="row d-flex justify-content-center">
+            <h1 className="d-flex justify-content-center titulo fw-bolder ">
+              Registro de Usuario
+            </h1>
           </div>
-          <div className="col-3"></div>
-        </div>
-
-        <div className="mb-3 row">
-          <div className="col-4"></div>
-          <label for="inputId" className="col-sm-1 col-form-label atributos ">
-            <b>Cedula</b>
-          </label>
-          <div className="col-sm-4">
-            <input
-              className="form-control"
-              id="inputId"
-              onChange={(e) => {
-                setCedula(e.target.value);
-              }}
-            />
-          </div>
-          <div className="col-3"></div>
-        </div>
-
-        <div className="mb-3 row">
-          <div className="col-4"></div>
-          <label for="inputAge" className="col-sm-1 col-form-label atributos ">
-            <b> Edad</b>
-          </label>
-          <div className="col-sm-4">
-            <input
-              className="form-control"
-              id="inputAge"
-              onChange={(e) => {
-                setEdad(e.target.value);
-              }}
-            />
-          </div>
-          <div className="col-3"></div>
-        </div>
-
-        <div className="mb-3 row">
-          <div className="col-4"></div>
-          <label for="inputEmail" className="col-sm-1 col-form-label atributos">
-            <b>Email</b>
-          </label>
-          <div className="col-sm-4">
-            <input
-              type="email"
-              className="form-control"
-              id="inputEmail"
-              placeholder="name@example.com"
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-          </div>
-          <div className="col-3"></div>
-        </div>
-        <div className="mb-3 row">
-          <div className="col-4"></div>
-          <label
-            for="inputPassword"
-            className="col-sm-1 col-form-label atributos "
-          >
-            <b>Contraseña</b>
-          </label>
-          <div className="col-sm-4">
-            <input
-              type="password"
-              className="form-control"
-              id="inputPassword"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-          </div>
-          <div className="col-3"></div>
-        </div>
-
-        <div className="row ">
-          <div className="col-lg-5 col-sm-3"></div>
-          <div className="col-lg-2 col-sm-6 d-flex justify-content-center">
-            <button
-              type="button"
-              className="btn botonRR fs-5"
-              onClick={register}
+          <div className="mb-3 row">
+            <div className="col-3"></div>
+            <label
+              for="inputName"
+              className="col-sm-2 col-form-label text-start atributos "
             >
-              <b>Crear Usuario</b>
-            </button>
+              <b className="text-start">Nombre</b>
+            </label>
+            <div className="col-sm-5">
+              <input
+                className="form-control"
+                id="inputName"
+                onChange={(e) => {
+                  setNombre(e.target.value);
+                }}
+                placeholder="Nombre Completo"
+              />
+            </div>
+            <div className="col-2"></div>
           </div>
-          <div className="col-lg-5 col-sm-3"></div>
+
+          <div className="mb-3 row">
+            <div className="col-3"></div>
+            <label
+              for="inputId"
+              className="col-sm-2 col-form-label text-end atributos "
+            >
+              <b>Cédula</b>
+            </label>
+            <div className="col-sm-5">
+              <input
+                className="form-control"
+                id="inputId"
+                onChange={(e) => {
+                  setCedula(e.target.value);
+                }}
+              />
+            </div>
+            <div className="col-2"></div>
+          </div>
+
+          <div className="mb-3 row">
+            <div className="col-3"></div>
+            <label
+              for="inputAge"
+              className="col-sm-2 col-form-label atributos text-end"
+            >
+              <b> Edad</b>
+            </label>
+            <div className="col-sm-5">
+              <input
+                className="form-control"
+                id="inputAge"
+                onChange={(e) => {
+                  setEdad(e.target.value);
+                }}
+              />
+            </div>
+            <div className="col-2"></div>
+          </div>
+
+          <div className="mb-3 row">
+            <div className="col-3"></div>
+            <label
+              for="inputEmail"
+              className="col-sm-2 col-form-label text-start atributos text-end"
+            >
+              <b>Email</b>
+            </label>
+            <div className="col-sm-5">
+              <input
+                type="email"
+                className="form-control"
+                id="inputEmail"
+                placeholder="name@example.com"
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+              />
+            </div>
+            <div className="col-3"></div>
+          </div>
+          <div className="mb-3 row">
+            <div className="col-3"></div>
+            <label
+              for="inputPassword"
+              className="col-sm-2 text-start col-form-label atributos"
+            >
+              <b>Contraseña</b>
+            </label>
+            <div className="col-sm-5">
+              <input
+                type="password"
+                className="form-control"
+                id="inputPassword"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
+            </div>
+            <div className="col-2"></div>
+          </div>
+          <div className="row ">
+            <div className="col-lg-4 col-sm-3"></div>
+            <div className="col-lg-4 col-sm-6 d-flex justify-content-center">
+              <button
+                type="button"
+                className="btn botonRR fs-5"
+                onClick={register}
+              >
+                <b>Crear Usuario</b>
+              </button>
+            </div>
+            <div className="col-lg-4 col-sm-3"></div>
+          </div>
         </div>
+        <br />
+        <br />
       </div>
     </>
   );
