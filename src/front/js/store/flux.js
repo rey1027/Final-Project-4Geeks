@@ -169,7 +169,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const store = getStore();
         try {
           const response = await fetch(
-            process.env.BACKEND_URL + "/especialistas"
+            process.env.BACKEND_URL + "/api/especialistas"
           );
           if (response.ok) {
             const data = await response.json();
