@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/home.css";
+import "../../styles/solicitud.css";
 import Swal from "sweetalert2";
 
 export const Citas = () => {
@@ -116,10 +116,10 @@ export const Citas = () => {
 
   return store.current_user ? store.current_user.rol == "user" ?(
     <form className="needs-validation" onSubmit={handleSubmit} novalidate>
-      <div className="Pagina ">
+      <div className="Registro">
         <div className="row d-flex justify-content-center">
           <h1 className="d-flex justify-content-center titulo ">
-            Registro de citas
+            Registre su cita
           </h1>
         </div>
         <div className="mb-3 row">
@@ -175,15 +175,15 @@ export const Citas = () => {
           <div className="col-3"></div>
         </div>
 
-        <div className="mb-3 row">
+        <div className="mb-4 row">
           <div className="col-4"></div>
           <label className="col-sm-1 col-form-label atributos">
-            <b>Especialidades</b>
+            <b>Especialidad</b>
           </label>
           <div className="col-sm-4">
           <select className="form-select" onChange={handleEspecialidadChange} required
           ref={inputEspecialidades}>
-            <option value=""> -- Selecione una especialidad -- </option>
+            <option value=""> -- Seleccione una especialidad -- </option>
             {
               especialidades.map(x => {
                 return <option value={x.id}>{x.nombre}</option>
@@ -191,13 +191,13 @@ export const Citas = () => {
             }
           </select>
           </div>
-          <div className="col-3"></div>
+          <div className="col-2"></div>
         </div>
 
         <div className="mb-3 row">
           <div className="col-4"></div>
           <label className="col-sm-1 col-form-label atributos">
-            <b>Especialistas</b>
+            <b>Especialista</b>
           </label>
           <div className="col-sm-4">
           <select className="form-select" onChange={handleEspecialistaChange} required
@@ -205,7 +205,7 @@ export const Citas = () => {
             {
               especialistas.length == 0 ?
               <option value=""> {msjEspecialidad} </option> :
-              <><option value=""> -- Selecione un especialista -- </option>
+              <><option value=""> -- Seleccione un especialista -- </option>
               {
                   especialistas.map(x => {
                     return <option value={x.id}>{x.nombre}</option>
@@ -223,7 +223,7 @@ export const Citas = () => {
           <label
             className="col-sm-1 col-form-label atributos "
           >
-            <b>Tratamientos</b>
+            <b>Tratamiento</b>
           </label>
           <div className="col-sm-4">
           <select className="form-select" required
@@ -231,7 +231,7 @@ export const Citas = () => {
           {
               tratamientos.length == 0 ?
               <option value=""> {msjTratamiento} </option> :
-              <><option value=""> -- Selecione un tratamiento -- </option>
+              <><option value=""> -- Seleccione un tratamiento -- </option>
               {
                   tratamientos.map(x => {
                     return <option value={x.id}>{x.nombre}</option>
