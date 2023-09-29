@@ -178,7 +178,7 @@ export const Home = () => {
             />
             <div className="card-body">
               <h5 className="card-title">Laboratorio Dental</h5>
-              <p className="card-text">
+              <p className="card-text text-justify">
                 El proceso de trabajo se lleva paso a paso desde el modelo en
                 yeso hasta la restauración final en porcelana en conjunto con
                 nuestros odontólogos, lo cual es crítico para asegurarle un
@@ -198,11 +198,9 @@ export const Home = () => {
             <div className="card-body">
               <h5 className="card-title">Tomografía Dental.</h5>
               <p className="card-text">
-                Su uso resulta especialmente relevante al permitir detectar
-                otras lesiones que pueden pasar desapercibidas si se estudian
-                con técnicas radiográficas convencionales, y en el caso de que
-                se requiera colocar implantes, al permitir medir ancho, largo y
-                grosor del hueso donde irán colocado
+                Su uso resulta importante para detectar otras lesiones que pasan desapercibidas si se estudian
+                con radiográficas convencionales, ya que permite medir ancho, largo y
+                grosor del hueso para saber donde colocar los implantes.
               </p>
             </div>
             <div className="card-footer">
