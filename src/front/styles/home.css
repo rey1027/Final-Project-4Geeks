@@ -1,7 +1,178 @@
-/*
-    home.css: This website contains selectors only used in home.css
-
-    All pages share the styles on index.css but you should create 
-    one more css for each page that will contain the selected used 
-    on that page only (the ones not reused in other pages).
+/* 
+    General Styles used on every website (Don't Repeat Yourself)
 */
+.logo {
+  width: 170px;
+  height: 100%;
+}
+
+.SOMOS {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 0 rgb(203, 233, 220);
+}
+
+.us {
+  background-color: #e3e2c3;
+}
+
+.chica {
+  width: 400px;
+  height: 500px;
+  margin-top: 5%;
+}
+
+.inicio {
+  background: no-repeat center/150%
+    url("https://cadprojekt.com.pl/wp-content/uploads/2021/01/projektowanie%20gabinet%C3%B3w%20stomatologicznych_48091_20210118_012857.jpg");
+  z-index: 100;
+  background-size: cover;
+  margin-top: 1%;
+}
+
+.contenedor {
+  background: #486989;
+  height: auto;
+  margin: 10%;
+}
+
+.protesis {
+  height: auto;
+  max-width: 90%;
+}
+
+.boton1 {
+  background-color: #e3e2c3;
+  background: #e3e2c3;
+  border-color: #e3e2c3;
+}
+
+.doctora {
+  background-color: rgb(112, 149, 204);
+}
+
+.boton1 {
+  box-shadow: 0px 10px 14px -33px #dcecfb;
+  background: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+  background-color: #bddbfa;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #545eee;
+  font-size: 18px;
+  font-style: italic;
+  padding: 9px 26px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528ecc;
+}
+.boton1:hover {
+  background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+  background-color: #80b5ea;
+}
+.boton1:active {
+  position: relative;
+  top: 1px;
+}
+
+.boton2 {
+  box-shadow: 0px 10px 14px -33px #efdcfb;
+  background: linear-gradient(to bottom, #dfbdfa 5%, #bc80ea 100%);
+  background-color: #dfbdfa;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #770ba1;
+  font-size: 18px;
+  font-style: italic;
+  padding: 9px 26px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #8026c5;
+}
+.boton2:hover {
+  background: linear-gradient(to bottom, #bc80ea 5%, #dfbdfa 100%);
+  background-color: #bc80ea;
+}
+.boton2:active {
+  position: relative;
+  top: 1px;
+}
+
+.d5 {
+  height: auto;
+  width: 100%;
+  max-width: 500px;
+  margin-top: auto;
+  background-color: #3da1ac;
+  border-radius: 100%;
+}
+
+.texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+  padding: 5%;
+}
+
+.especialidades {
+  background: no-repeat center/100%
+    url("https://williamrclydedds.com/wp-content/uploads/b2b/stock/v2/bigstock/bigstock-Dental-Visit-41142844.jpg?w=1440&h=1080&a=t");
+  z-index: 100;
+  background-size: cover;
+  /* background-color: #fcf9c4; */
+}
+
+.textoD {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+}
+
+.solicitud {
+  background-color: #2e7fb6;
+}
+
+.boton4 {
+  box-shadow: 0px 10px 14px -33px #fff6af;
+  background: linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+  background-color: #ffec64;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #333333;
+  font-size: 18px;
+  font-style: italic;
+  padding: 9px 26px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffee66;
+}
+.boton4:hover {
+  background: linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+  background-color: #ffab23;
+}
+.boton4:active {
+  position: relative;
+  top: 1px;
+}
+
+.tecnologia {
+  background-color: #5fbdb0;
+  padding-block-end: 3%;
+}
+
+.grupo {
+  height: auto;
+}
+
+.carta {
+  height: 550px !important;
+}
+
+.footerF {
+  background-color: #82b6bf;
+}
