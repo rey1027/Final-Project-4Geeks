@@ -11,6 +11,8 @@ from flask_jwt_extended import jwt_required
 
 #Librerias para email
 
+import random 
+import string
 import smtplib, ssl
 import os
 from email.mime.text import MIMEText
@@ -19,15 +21,16 @@ from datetime import datetime
 from email.mime.base import MIMEBase
 from email import encoders
 
+
 smtp_address = os.getenv("SMTP_ADDRESS")
 smtp_port = os.getenv("SMTP_PORT")
 email_address = os.getenv("EMAIL_ADDRESS")
 email_password = os.getenv("EMAIL_PASSWORD")
- 
 
 api = Blueprint('api', __name__)
 
 def send_email(asunto, email_receptor,body):
+    
     mensaje= MIMEMultipart("alternativo")
     mensaje["Subject"] = asunto
     mensaje['From']= email_address
@@ -35,17 +38,15 @@ def send_email(asunto, email_receptor,body):
 
     # Version HTML
     html = '''
-    bandera ? 
     <html>
     <body>
     <div>
     <h1> Smile Clinic </h1>
-    <p>Un placer saludarle</p>
-    <p>La clinica desea informale lo siguiente:</p>
+    <p>Buenas</p>
     ''' + body +'''
     <p> Cualquier duda o consulta no dude en contactarnos, que estamos para servirle </p>
 
-    <h5>Saludos</h5>
+    <h4>Saludos</h4>
     </div>
     </body>
     </html>
@@ -59,11 +60,11 @@ def send_email(asunto, email_receptor,body):
         context= ssl.create_default_context()
         with smtplib.SMTP_SSL(smtp_address,smtp_port, context=context) as server:
             server.login(email_address,email_password)
-            server.sendmail(email_address,email_receptor,mensaje.as_string)
-        return jsonify({"message":"Email enviado con exito"}) , 200 # Modificar
+            server.sendmail(email_address,email_receptor,mensaje.as_string())
+        return True 
     except Exception as error:
         print(str(error))
-        return jsonify({"message":"Error al enviar el email"}) , 400 #Modificar 
+        return False 
 
 
 def verify_token(jti):
@@ -72,6 +73,43 @@ def verify_token(jti):
         return True #No esta bloqueado
     else:
         return False #Esta bloqueado
+
+
+def generate_random_password():
+    caracteres = string.ascii_letters + string.digits
+    new_password = ''.join(random.choice(caracteres) for _ in range(8))
+    return new_password
+
+
+@api.route('/forgot_password', methods=['POST'])
+def forgot_password():
+    data = request.get_json()
+    email_receptor = data.get("email")
+    
+    if email_receptor:
+        new_password = generate_random_password()
+
+        user = User.query.filter_by(email=email_receptor).first()
+        user_S = User.query.filter_by(email=email_receptor).first().serialize()
+
+        if user:
+            hashed_password = current_app.bcrypt.generate_password_hash(new_password,10).decode("utf-8")
+            user.password = hashed_password
+            db.session.commit()
+
+            asunto = "Recuperación de contraseña"
+            body = '''<p>Estimad@ '''+ user_S["nombre_completo"]+''' se le comunica que usted a solicitado un cambio de contraseña en el sistema Smile Clinic</p>
+                <p> Su <b>nueva contraseña </b> para ingresar al sistema es la siguiente:''' + new_password +'''</p>'''
+            
+            
+            send_email(asunto, email_receptor, body)
+
+            return jsonify({"message": "Se ha enviado una nueva contraseña por correo electrónico."}), 200
+        else:
+            return jsonify({"message": "Dirección de correo electrónico no encontrada."}), 404
+    else:
+        return jsonify({"message": "Se requiere una dirección de correo electrónico válida para recuperar la contraseña."}), 400
+
 
 @api.route('/hello', methods=['POST', 'GET'])
 @jwt_required()
@@ -195,6 +233,7 @@ def log_out():
     user = User.query.filter_by(email=email).first().serialize()
     return jsonify({"token":access_token, "nombre":user["nombre_completo"]}), 200
 
+        
 #Rutas realizadas por Glenda 
 
 #-------------------------------------------------------ESPECIALIDADES--------------------------------------------------------------
@@ -295,10 +334,10 @@ def delete_especialista(id):
     return jsonify({'message': 'Especialista eliminado exitosamente'})
 
 #-------------------------------------------------------TRATAMIENTOS---------------------------------------------------------------------
-@api.route('/tratamientos', methods=['GET']) #yolanda
+@api.route('/tratamientos', methods=['GET']) 
 def obtener_tratamientos():
     search = Tratamientos.query.all()  
-    search_serialize = list(map(lambda x: x.serialize(), search)) # search.map((item)=>{item.serialize()})
+    search_serialize = list(map(lambda x: x.serialize(), search)) 
     
     return jsonify(search_serialize), 200
 
@@ -315,7 +354,7 @@ def create_tratamiento():
         nombre_completo=data['nombre'],
         descripcion=data['descripcion'],
         precio=data['precio'],
-        especialista_id=data['especialista_id']
+        especialista_id=data['especialista_id'],
     )
     db.session.add(nuevo_tratamiento)
     db.session.commit()
@@ -345,7 +384,7 @@ def delete_tratamiento(id):
 
 #-------------------------------------------------Citas------------------------------------------------------------------------
 
-@api.route('/citas', methods=['GET'])
+@api.route('/listacitas', methods=['GET'])
 @jwt_required()
 def obtener_citas():
     verification = verify_token(get_jwt()["jti"])
@@ -365,25 +404,38 @@ def create_cita():
     
     data = request.json
     nueva_cita = Citas(
-        nombre_paciente=data['nombre'],
+        nombre_paciente= data['nombre'],
         fecha=data['fecha'],
         hora=data['hora'],
-        especialidad_id=data['especialidad_id'],
         tratamientos_id=data['tratamientos_id'],
         especialistas_id=data['especialistas_id']
     )
+    email_receptor= data["email"]
 
-    especialidad = Especialidad.query.get(nueva_cita.especialidad_id)
+
     tratamiento = Tratamientos.query.get(nueva_cita.tratamientos_id)
     especialista = Especialistas.query.get(nueva_cita.especialistas_id)
-    if especialidad is None:
-        return jsonify({'error': 'Especialidad no encontrada'}), 404
-    elif tratamiento is None:
+    trata = Tratamientos.query.filter_by(id=nueva_cita.tratamientos_id).first().serialize()
+    doctor = Especialistas.query.filter_by(id=nueva_cita.especialistas_id).first().serialize()
+
+    if tratamiento is None:
         return jsonify({'error': 'Tratamiento no encontrado'}), 404
     elif especialista is None:
         return jsonify({'error': 'Especialista no encontrado'}), 404
+    
+
+    asunto = "Confirmación de citas"
+    body = '''<p>Estimad@ '''+ data["nombre"]+''' se le comunica sobre la cita que reservo:</p>
+                <p><b>Fecha de la cita:</b> ''' + data["fecha"] +'''</p>
+                <p><b>Hora de la cita:</b> ''' + data ["hora"] +'''</p>
+                <p><b>Tratamiento:</b>''' + trata['nombre'] +  '''</p>
+                <p><b>Especialidad:</b>''' + doctor['nombre_de_especialidad']+ '''</p>
+                <p><b>Especialista:</b>'''+ doctor["nombre"] + '''</p>
+            '''
+    
 
     try:
+        send_email(asunto, email_receptor, body)
         db.session.add(nueva_cita)
         db.session.commit()
     except:
@@ -392,12 +444,38 @@ def create_cita():
     return jsonify({'message': 'Cita creada exitosamente'}), 201 
 
 @api.route('/citas/<int:id>', methods=['DELETE'])
+@jwt_required()
 def eliminar_cita(id):
+    verification = verify_token(get_jwt()["jti"])
+    if verification ==False:
+        return jsonify({"message":"Prohibido"}) , 403 
+    
+
     cita = Citas.query.get(id)
+    
+    delete_cita = Citas.query.filter_by(id=id).first().serialize()
+    paciente = User.query.filter_by(nombre_completo= delete_cita["nombre"]).first().serialize()
+
+    print(delete_cita)
+    
+
+
     if cita is None:
         return jsonify({'error': 'Cita no encontrada'}), 404
-
+    
+    email_receptor= paciente["email"]
+    print(email_receptor)
+    asunto = "Cancelación de cita"
+    body = '''Estimad@'''+ delete_cita["nombre"]+''' se le informa la cancelación de la siguiente cita:
+                <p><b>Fecha de la cita:</b> ''' + delete_cita["fecha"] +'''</p>
+                <p><b>Hora de la cita:</b> ''' + delete_cita ["hora"] +'''</p>
+                <p><b>Tratamiento:</b>''' + delete_cita['tratamiento'] +  '''</p>
+                <p><b>Especialista:</b>'''+ delete_cita["especialista"] + '''</p>
+            Esto se debe a compromisos del especialista, ingrese nuevamente a la página y solicitud nuevamente la cita en el espacio de su preferencia.
+            Se le agrecede la comprención.
+            '''
+    send_email(asunto, email_receptor, body)
     db.session.delete(cita)
     db.session.commit()
 
-    return jsonify({'message': 'Cita eliminada exitosamente'}), 200
+    return jsonify({'message': 'Cita eliminada exitosamente en el sistema y notificación enviada al usuario'}), 200

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "../../styles/home.css";
 import protesis from "../../img/protesis.png";
 import doc1 from "../../img/doc1.png";
-import g3 from "../../img/g3.png";
 import d5 from "../../img/d5.png";
 
 export const Home = () => {
@@ -34,7 +33,7 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="contenedor d-flex shadow-lg align-items-center">
+        <div className="contenedor d-flex align-items-center rounded">
           <div className="row">
             <div className="col-lg-1 col-sm-12 p-4 text-white">
               <h1>+10</h1>
@@ -48,50 +47,20 @@ export const Home = () => {
             <div className="col-lg-5 col-sm-12">
               <div className=" mt-5 text-md-start p-5 text-white fw-bol">
                 <h4>
-                  {" "}
                   Aquí encontrarás una amplia gama de servicios diseñados para
                   cuidar y mejorar tu salud bucal.
                 </h4>
-                <Link to="/tratamientos">
-                  <a
-                    href="#"
-                    className="d-grid gap-2 col-4 boton1 btn btn-info mt-5"
-                  >
-                    <h5 className="text-dark">Ver más</h5>
-                  </a>
+                <Link
+                  to="/tratamientos"
+                  className="d-grid gap-2 col-4 boton1 mt-5"
+                >
+                  <h5 className="fst-italic">Ver más</h5>
                 </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div className="container-fluid">
-        <div className="row especialidades">
-          <div className="col-lg-6 col-sm-2 text-center mt-5">
-            <div></div>
-          </div>
-          <div className="col-lg-6 textoD text-dark col-sm-10 mt-5">
-            <p>
-              <h1 className="text-start mt-4">
-                <strong>Especialidades</strong>
-              </h1>
-            </p>
-            <div className="text-start fw-bol">
-              <h4>
-                Estamos encantados de invitarte a explorar nuestras
-                especialidades en el campo de la odontología. En nuestra
-                clínica, nos enorgullece ofrecer una amplia gama de servicios
-                especializados para satisfacer todas tus necesidades dentales.
-              </h4>
-              <Link to="/especialidades" className="d-grid gap-2 col-4 boton3 btn btn-info mt-5">
-                  <h5 className="text-dark">Ver más</h5>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br />
 
       <div className="container-fluid">
         <div className="row doctora">
@@ -106,18 +75,39 @@ export const Home = () => {
                 ¡Te invitamos a descubrir a nuestros especialistas en
                 odontología!. Contamos con un equipo de profesionales altamente
                 capacitados y especializados en diversas áreas de la
-                odontología. Están comprometidos con brindar la mejor atención
-                dental.
+                odontología.
               </h4>
-              <Link to="/especialistas" className="d-grid gap-2 col-4 boton2 btn btn-info mt-5">
-                  
-                  <h5 className="text-dark">Ver más</h5>
+              <Link
+                to="/especialistas"
+                className="d-grid gap-2 col-4 boton2  mt-5"
+              >
+                <h5 className="fst-italic">Ver más</h5>
               </Link>
             </div>
           </div>
           <div className="col-lg-6 col-sm-5 text-center mt-5">
             <div>
               <img className="doc1 rounded" src={doc1} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <div className="container-fluid">
+        <div className="row especialidades">
+          <div className="col-lg-12 textoD text-dark col-sm-10">
+            <p>
+              <h1 className="text-start mt-5">
+                <strong>Especialidades</strong>
+              </h1>
+            </p>
+            <div className="text-start fw-bol">
+              <h4>
+                En nuestra clínica, nos enorgullece ofrecer una amplia gama de
+                servicios especializados para satisfacer todas tus necesidades
+                dentales.
+              </h4>
             </div>
           </div>
         </div>
@@ -147,14 +137,15 @@ export const Home = () => {
               </h4>
               <a
                 href="#"
-                className="d-grid gap-2 col-lg-4 col-sm-2  boton4 btn btn-info mt-5"
+                className="d-grid gap-2 col-lg-4 col-sm-5 boton4 mt-5"
               >
-                <h5 className="text-dark">Solicitud de cita</h5>
+                <h5 className="fst-italic">Solicitud de cita</h5>
               </a>
             </div>
           </div>
         </div>
       </div>
+      <br />
 
       <div className="container-fluid mt-4 tecnologia pt-2">
         <div className="text-center mt-3">
@@ -187,7 +178,7 @@ export const Home = () => {
             />
             <div className="card-body">
               <h5 className="card-title">Laboratorio Dental</h5>
-              <p className="card-text">
+              <p className="card-text text-justify">
                 El proceso de trabajo se lleva paso a paso desde el modelo en
                 yeso hasta la restauración final en porcelana en conjunto con
                 nuestros odontólogos, lo cual es crítico para asegurarle un
@@ -207,15 +198,13 @@ export const Home = () => {
             <div className="card-body">
               <h5 className="card-title">Tomografía Dental.</h5>
               <p className="card-text">
-                Su uso resulta especialmente relevante al permitir detectar
-                otras lesiones que pueden pasar desapercibidas si se estudian
-                con técnicas radiográficas convencionales, y en el caso de que
-                se requiera colocar implantes, al permitir medir ancho, largo y
-                grosor del hueso donde irán colocado
+                Su uso resulta importante para detectar otras lesiones que pasan desapercibidas si se estudian
+                con radiográficas convencionales, ya que permite medir ancho, largo y
+                grosor del hueso para saber donde colocar los implantes.
               </p>
             </div>
             <div className="card-footer">
-              <small className="text-muted">Solicite su cita</small>
+              <small className="text-muted ">Solicite su cita</small>
             </div>
           </div>
         </div>

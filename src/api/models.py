@@ -59,6 +59,8 @@ class Especialistas(db.Model):
     codigo_profesional = db.Column(db.Integer, unique=True, nullable=False)
     especialidad_id = db.Column(db.Integer, db.ForeignKey('especialidad.id'))
     citas = db.relationship('Citas', backref='especialistas', lazy=True)
+    tratamientos = db.relationship('Tratamientos', backref='especialistas', lazy=True)
+
 
     def serialize(self):
         especialidad=Especialidad.query.get(self.especialidad_id)
@@ -87,7 +89,7 @@ class Tratamientos(db.Model):
             "nombre":self.nombre_completo,
             "descripcion":self.descripcion,
             "especialista_id":self.especialista_id,
-            "precio":self.precio     
+            "precio":self.precio
         }
 
 

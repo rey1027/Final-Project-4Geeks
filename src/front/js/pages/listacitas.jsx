@@ -2,90 +2,91 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import fondo from "../../img/bgcitas3.png";
 import "../../styles/citas.css";
+import Swal from "sweetalert2";
+
 //create your first component
 const LCitas = (props) => {
-	const { store, actions } = useContext(Context);
-	console.log(store.citas)
-	 useEffect(()=>{
-	 	actions.obtenerCitas();
-	   }, [])
-	  //console.log(store.listacitas);
-	const [citas, setCitas] = useState("")
-	const [lista, setLista] = useState([])
-	
-	// const getTask = async () => {
-    //     try {
-    //         let response = await fetch(process.env.BACKEND_URL+ "/api/citas");
-    //         if (response.ok) {
-    //             let data = await response.json();
-    //             setLista(data);
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-    // useEffect(() => {
-    //     getTask();
-    // }, []);
-	// const handleInput = (e) => {
-	// 	let texto = e.target.value
-	// 	if (e.keyCode == 13) {
-	// 		setCitas(texto)
-	// 		//Una primera aproximación para agregar a la lista es usando una variable auxiliar
-	// 		//let tempArr = lista.slice() //copia de arreglo por valor
-	// 		//tempArr.push(texto)
-	// 		//setLista(tempArr)
+  const { store, actions } = useContext(Context);
+  console.log(store.citas);
+  useEffect(() => {
+    actions.obtenerCitas();
+  }, []);
+  const [citas, setCitas] = useState("");
+  const [lista, setLista] = useState([]);
 
-	// 		//Una segunda aproximación es usando el operador spread ...
-	// 		setLista([...lista, texto])
-	// 	}
-	// }
+  return store.current_user ? (
+      store.current_user.rol == "admin" ? (
+      <>
+      <div className="container-fluid caja">
+        <div className="paper containercitas">
+          <div className="nota">
+            <ul className="list-group">
+              <p className="titulotodos fst-italic ">Próximas Citas:</p>
 
-	const deleteCita = (index) => { 
-		let tempArr = lista.slice() //copiar el estado lista en una variable auxiliar
-		tempArr = tempArr.filter((item, index2) => { return index2 != index })
-		setLista(tempArr)
-	}
-	
-	return (
-		<>
-        <div className="paper containercitas text-center justify-content-center justify-items-center">
-		
-					<div className=" nota ">
-			<ul className="list-group">
-			<p className=" lista3 titulotodos ">citas próximas</p>
-			<input className=" lista2 list-group-item text-center" type="text reset"   placeholder="Escriba aquí"
-					// onKeyUp= {
-					//  	(e) => { handleInput(e) }
-					//  } 
-					/>
-					
-			{
-						lista && lista.length > 0 ?
-							<>{
-								lista.map((item, index) => {
-									return <li className="lista text-center list-group-item" key={index}>
-										{item}
-										<button className="botonX" type="button" onClick={e => { deleteCita(index) }}>
-											<p className="eliminar">X</p>
-										</button>
-									</li>
-								})
-							}</>
-							: "la lista está vacía"
-					}
-					
-			</ul>
-			</div>
-				<p className="agregado">items left  {lista.length}</p> 
-			</div>
-			 
-			
-			
-			
-		</>
-	);
+              {store.citas && store.citas.length > 0 ? (
+                <>
+                  {store.citas.map((item, i) => {
+                    return (
+                      <li
+                        className="lista text-center list-group-item shadow-lg p-3 mb-5 bg-body rounded"
+                        key={i}
+                      >
+                        <div className=""></div>
+                        <div className="list-group">
+                          <a
+                            className="list-group-item list-group-item-action citaS"
+                            aria-current="true"
+                          >
+                            <div className="d-flex w-100 justify-content-between">
+                              <h5 className="mb-1 fst-italic">
+                                <strong>{item.nombre}</strong>
+                              </h5>
+                              <small>
+                                <strong>Fecha: {item.fecha}</strong>
+                              </small>
+                            </div>
+                            <p className="mb-1">
+                              Tratamiento: {item.tratamiento} <br />{" "}
+                              Especialista: {item.especialista}
+                              <br />
+                              <small>Hora: {item.hora}</small>
+                            </p>
+
+                            <button
+                              className="CancelarC"
+                              type="button"
+                              onClick={() => {
+                                actions.eliminarCita(item.id);
+                              }}
+                            >
+                              <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                          </a>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </>
+              ) : (
+                "la lista está vacía"
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </>
+    ) : (
+      <div className="text-center mt-5">
+        <h1>Esta página es solo para los Administradores</h1>
+      </div>
+        )
+  ) : (
+    <div className="text-center mt-5">
+      <h1>Debes iniciar sesión para visualizar la página</h1>
+    </div>
+  );
 };
 
 export default LCitas;

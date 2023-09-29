@@ -16,6 +16,7 @@ import Login from "./pages/login.jsx";
 import LCitas from "./pages/listacitas.jsx";
 import Citas from "./pages/solicitud.jsx";
 import Especialistas from "./pages/especialistas.jsx";
+import Password from "./pages/password.jsx";
 
 //create your first component
 const Layout = () => {
@@ -42,6 +43,7 @@ const Layout = () => {
             <Route element={<LCitas />} path="/listacitas" />
             <Route element={<Citas />} path="/citas" />
             <Route element={<Especialistas />} path="/especialistas" />
+            <Route element={<Password />} path="/password" />
           </Routes>
           <Footer />
         </ScrollToTop>

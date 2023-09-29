@@ -11,22 +11,17 @@ export const Especialistas = (props) => {
   const params = useParams();
 
   return (
-    <>
-      <div className="jumbotron">
-        <div className="Card row row-cols-4 row-cols-md-4 g-3 justify-content-center justify-items-center">
+    <> 
+    <div className="container-fluid">
+      <div className="row">
+        <div className="Card row row-cols-lg-4 justify-content-center justify-items-center mb-3">
           {store.especialistas.map((item)=>{
             return(
-              <CardEspecialistas especialista ={item} key={item.id}/>
+              <CardEspecialistas className="col-lg-4" especialista ={item} key={item.id}/>
             )
           })}
-          .{/* Agrega más ServiceCard para otros servicios */}
         </div>
-
-         {/* <Link to="/especialidades">
-          <span className="btn btn-primary btn-lg" href="#" role="button">
-            Especialidades
-          </span>
-        </Link> */}
+      </div>
       </div>
     </>
   );
