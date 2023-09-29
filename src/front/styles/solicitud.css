@@ -1,0 +1,48 @@
+
+.Registro{   
+    background: no-repeat center/150%
+    url("https://th.bing.com/th/id/R.2d22105e954c8becae223e0c558cd760?rik=X6J0DldcIACgCA&riu=http%3a%2f%2fwww.hanahatakobasika.jp%2fimg%2fimg01.jpg&ehk=MTti3pbqKtKElNJKfTmIdNNqw%2bpt8UfMjCrXEe6mZ2I%3d&risl=&pid=ImgRaw&r=0");
+   z-index: 100;
+   background-size: cover;
+   margin-top: 1%;
+  }
+  
+ 
+  .tituloC{
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  
+  .atributosC {
+    font-weight: bold;
+  }
+  
+
+  .form-controlC {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #086e99;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+
+  .form-selectC {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #086e99;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  
+
+  .botonRRC {
+    background-color: #096fce;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

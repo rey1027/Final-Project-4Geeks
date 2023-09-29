@@ -18,18 +18,10 @@ const ServiceCard = ({ title, image, description, price, id, linkTo }) => {
               className="btn btn-primary boton"
               data-bs-toggle="modal"
               data-bs-target={"#cardservice-" + id}
-              //data-bs-target={`modal${data.id}`}
-              //onClick={handleModalToggle}
-              // onClick={() => {
-              //   actions.obtenerTratamientos(data.id);
-              // }}
             >
               Saber más
             </button>
           </p>
-          {/* {showModal && ( */}
-
-          {/* )} */}
         </div>
       </div>
       <div
@@ -51,7 +43,6 @@ const ServiceCard = ({ title, image, description, price, id, linkTo }) => {
                 type="button "
                 data-bs-dismiss="modal"
                 className="btn-close "
-                //onClick={handleModalToggle}
                 aria-label="Close"
               ></button>
             </div>
@@ -59,7 +50,7 @@ const ServiceCard = ({ title, image, description, price, id, linkTo }) => {
               <p>{description}</p>
               <p className="text-secondary fw-bold text-start">
                 {" "}
-                precio ${price}
+                Precio ₡{price}
               </p>
             </div>
             <div className="modal-footer">
@@ -68,9 +59,8 @@ const ServiceCard = ({ title, image, description, price, id, linkTo }) => {
                 className="btn btn-secondary"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"
-                // onClick={handleModalToggle}
               >
-                Close
+                Cerrar
               </button>
             </div>
           </div>

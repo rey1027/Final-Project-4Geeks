@@ -89,7 +89,7 @@ class Tratamientos(db.Model):
             "nombre":self.nombre_completo,
             "descripcion":self.descripcion,
             "especialista_id":self.especialista_id,
-            "precio":self.precio     
+            "precio":self.precio
         }
 
 

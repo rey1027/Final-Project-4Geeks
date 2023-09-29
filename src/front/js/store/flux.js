@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -115,23 +116,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((response) => response.json())
           .then((data) => setStore({ tratamientos: data }));
 
-        // if (response.ok) {
-        //   let responseJson = response.json();
-        //   setTratamientos(responseJson);
-        //   console.log(responseJson);
-        // } else {
-        //   let responseJson = response.json();
-        //   console.log(responseJson);
-        // }
       },
       obtenerCitas: async () => {
         const store = getStore();
         const actions = getActions();
         let response = await actions.fetchPromise("/api/listacitas", "GET");
-        // fetch(process.env.BACKEND_URL + "/api/listacitas")
-
-        //   .then((response) => response.json())
-        //   .then(data => console.log({ citas: data }))
 
         if (response.ok) {
           let responseJson = await response.json();
@@ -150,12 +139,25 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((response) => {
             if (!response.ok) {
+              Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Error al eliminar la cita",
+                timer: 2500,
+              });
               throw new Error("Error al eliminar la cita");
             }
+            
             return response.json();
           })
           .then((data) => {
             // La cita se ha eliminado exitosamente
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: data.message,
+              timer: 2500,
+            });
             console.log(data.message);
             actions.obtenerCitas();
           })

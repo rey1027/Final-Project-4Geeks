@@ -69,16 +69,16 @@ const Registrar = () => {
     <>
       <div className="General container-fluid">
         <br />
-        <div className="Pagina">
+        <div className="PaginaR">
           <div className="row d-flex justify-content-center">
-            <h1 className="d-flex justify-content-center titulo fw-bolder ">
+            <h1 className="d-flex justify-content-center tituloR ">
               Registro de Usuario
             </h1>
           </div>
           <div className="mb-3 row">
             <div className="col-3"></div>
             <label
-              for="inputName"
+              htmlFor="inputName"
               className="col-sm-2 col-form-label text-start atributos "
             >
               <b className="text-start">Nombre</b>
@@ -99,8 +99,8 @@ const Registrar = () => {
           <div className="mb-3 row">
             <div className="col-3"></div>
             <label
-              for="inputId"
-              className="col-sm-2 col-form-label text-end atributos "
+              htmlFor="inputId"
+              className="col-sm-2 col-form-label text-end atributosR "
             >
               <b>Cédula</b>
             </label>
@@ -119,8 +119,8 @@ const Registrar = () => {
           <div className="mb-3 row">
             <div className="col-3"></div>
             <label
-              for="inputAge"
-              className="col-sm-2 col-form-label atributos text-end"
+              htmlFor="inputAge"
+              className="col-sm-2 col-form-label atributosR text-end"
             >
               <b> Edad</b>
             </label>
@@ -139,8 +139,8 @@ const Registrar = () => {
           <div className="mb-3 row">
             <div className="col-3"></div>
             <label
-              for="inputEmail"
-              className="col-sm-2 col-form-label text-start atributos text-end"
+              htmlFor="inputEmail"
+              className="col-sm-2 col-form-label text-start atributosR text-end"
             >
               <b>Email</b>
             </label>
@@ -158,10 +158,10 @@ const Registrar = () => {
             <div className="col-3"></div>
           </div>
           <div className="mb-3 row">
-            <div className="col-3"></div>
+            <div className="col-2"></div>
             <label
-              for="inputPassword"
-              className="col-sm-2 text-start col-form-label atributos"
+              htmlFor="inputPassword"
+              className="col-3 text-center col-form-label atributosR"
             >
               <b>Contraseña</b>
             </label>
@@ -182,7 +182,7 @@ const Registrar = () => {
             <div className="col-lg-4 col-sm-6 d-flex justify-content-center">
               <button
                 type="button"
-                className="btn botonRR fs-5"
+                className="btn botonRRe "
                 onClick={register}
               >
                 <b>Crear Usuario</b>

@@ -21,12 +21,6 @@ export const Especialistas = (props) => {
             )
           })}
         </div>
-
-         {/* <Link to="/especialidades">
-          <span className="btn btn-primary btn-lg" href="#" role="button">
-            Especialidades
-          </span>
-        </Link> */}
       </div>
       </div>
     </>

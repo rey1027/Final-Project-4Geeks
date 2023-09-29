@@ -12,14 +12,14 @@ const CardEspecialistas = ({ especialista }) => {
           <h5 className="card-title text-start">{especialista.nombre}</h5>
           <br />
           <h6 className="card-subtitle mb-2 text-muted">
-            {especialista.codigo_profesional}
+            Código: {especialista.codigo_profesional}
           </h6>
           <h6 className="card-text text-start mt-2">
             {especialista.nombre_de_especialidad}
           </h6>
           <br />
-          <h6 className="card-subtitle text-end mb-2 text-muted">
-            {especialista.años_experiencia} años
+          <h6 className="card-subtitle text-end mb-2 text-muted ps-5">
+            Experiencia: {especialista.años_experiencia} años
           </h6>
           <button
             className="text-center myButtonC"
@@ -55,7 +55,7 @@ const CardEspecialistas = ({ especialista }) => {
             <div className="modal-body">{especialista.perfil_profesional}</div>
             <div className="modal-footer">
               <button type="button" className="cerrar" data-bs-dismiss="modal">
-                Close
+                Cerrar
               </button>
             </div>
           </div>

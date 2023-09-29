@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
-import "../../styles/home.css";
+import "../../styles/solicitud.css";
 import Swal from "sweetalert2";
 
 export const Citas = () => {
@@ -86,13 +86,15 @@ export const Citas = () => {
     event.preventDefault();
 
       let obj = {
-        nombre: inputNombre.current,
+        nombre: store.current_user.nombre_completo,
         fecha: inputDate.current.value,
         hora: inputTime.current.value,
         especialidad_id: inputEspecialidades.current.value,
         especialistas_id: inputEspecialistas.current.value,
-        tratamientos_id: inputTratamientos.current.value
+        tratamientos_id: inputTratamientos.current.value,
+        email:store.current_user.email
       };
+
   
       let response = await actions.fetchPromise(
         "/api/citas",
@@ -128,20 +130,20 @@ export const Citas = () => {
   return store.current_user ? (
     store.current_user.rol == "user" ? (
       <form className="needs-validation" onSubmit={handleSubmit} noValidate>
-        <div className="Pagina ">
+        <div className="Registro ">
           <div className="row d-flex justify-content-center">
-            <h1 className="d-flex justify-content-center titulo ">
-              Registro de citas
+            <h1 className="d-flex justify-content-center tituloC">
+              Registre su cita
             </h1>
           </div>
           <div className="mb-3 row">
             <div className="col-4"></div>
-            <label className="col-sm-1 col-form-label atributos ">
+            <label className="col-sm-1 col-form-label atributosC ">
               <b>Nombre</b>
             </label>
             <div className="col-sm-4">
               <input
-                className="form-control"
+                className="form-control form-controlC"
                 id="inputName"
                 value={store.current_user.nombre_completo}
                 disabled
@@ -152,12 +154,12 @@ export const Citas = () => {
 
           <div className="mb-3 row">
             <div className="col-4"></div>
-            <label className="col-sm-1 col-form-label atributos ">
+            <label className="col-sm-1 col-form-label atributosC ">
               <b>Fecha</b>
             </label>
             <div className="col-sm-4">
               <input
-                className="form-control"
+                className="form-control form-controlC"
                 id="inputDate"
                 type="date"
                 ref={inputDate}
@@ -170,12 +172,12 @@ export const Citas = () => {
 
           <div className="mb-3 row">
             <div className="col-4"></div>
-            <label className="col-sm-1 col-form-label atributos ">
+            <label className="col-sm-1 col-form-label atributosC ">
               <b> Hora</b>
             </label>
             <div className="col-sm-4">
               <input
-                className="form-control"
+                className="form-control form-controlC"
                 id="inputHora"
                 type="time"
                 step="1800"
@@ -187,14 +189,14 @@ export const Citas = () => {
             <div className="col-3"></div>
           </div>
 
-          <div className="mb-3 row">
+          <div className="mb-4 row">
             <div className="col-4"></div>
-            <label className="col-sm-1 col-form-label atributos">
+            <label className="col-sm-1 col-form-label atributosC">
               <b>Especialidades</b>
             </label>
             <div className="col-sm-4">
               <select
-                className="form-select"
+                className="form-select form-selectC"
                 onChange={handleEspecialidadChange}
                 required
                 ref={inputEspecialidades}
@@ -209,17 +211,17 @@ export const Citas = () => {
                 })}
               </select>
             </div>
-            <div className="col-3"></div>
+            <div className="col-2"></div>
           </div>
 
           <div className="mb-3 row">
             <div className="col-4"></div>
-            <label className="col-sm-1 col-form-label atributos">
+            <label className="col-sm-1 col-form-label atributosC">
               <b>Especialistas</b>
             </label>
             <div className="col-sm-4">
               <select
-                className="form-select"
+                className="form-select form-selectC"
                 onChange={handleEspecialistaChange}
                 required
                 ref={inputEspecialistas}
@@ -230,7 +232,7 @@ export const Citas = () => {
                   <>
                     <option value=""> -- Selecione un especialista -- </option>
                     {especialistas.map((x) => {
-                      return <option value={x.id}>{x.nombre}</option>;
+                      return <option key={x.id} value={x.id}>{x.nombre}</option>;
                     })}
                   </>
                 )}
@@ -241,18 +243,18 @@ export const Citas = () => {
 
           <div className="mb-3 row">
             <div className="col-4"></div>
-            <label className="col-sm-1 col-form-label atributos ">
+            <label className="col-sm-1 col-form-label atributosC ">
               <b>Tratamientos</b>
             </label>
             <div className="col-sm-4">
-              <select className="form-select" required ref={inputTratamientos}>
+              <select className="form-select form-selectC" required ref={inputTratamientos}>
                 {tratamientos.length == 0 ? (
                   <option value=""> {msjTratamiento} </option>
                 ) : (
                   <>
                     <option value=""> -- Selecione un tratamiento -- </option>
                     {tratamientos.map((x) => {
-                      return <option value={x.id}>{x.nombre}</option>;
+                      return <option key={x.id} value={x.id}>{x.nombre}</option>;
                     })}
                   </>
                 )}
@@ -264,7 +266,7 @@ export const Citas = () => {
           <div className="row ">
             <div className="col-lg-5 col-sm-3"></div>
             <div className="col-lg-2 col-sm-6 d-flex justify-content-center">
-              <button type="submit" className="btn botonRR fs-5">
+              <button type="submit" className="btn botonRRC fs-5">
                 <b>Crear Cita</b>
               </button>
             </div>

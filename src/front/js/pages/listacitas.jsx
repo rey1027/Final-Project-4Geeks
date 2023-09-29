@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import fondo from "../../img/bgcitas3.png";
 import "../../styles/citas.css";
+import Swal from "sweetalert2";
 
 //create your first component
 const LCitas = (props) => {
@@ -15,14 +16,14 @@ const LCitas = (props) => {
   const [citas, setCitas] = useState("");
   const [lista, setLista] = useState([]);
 
-  return (
-    <>
+  return store.current_user ? (
+      store.current_user.rol == "admin" ? (
+      <>
       <div className="container-fluid caja">
         <div className="paper containercitas">
           <div className="nota">
             <ul className="list-group">
               <p className="titulotodos fst-italic ">Próximas Citas:</p>
-              {/* <input className="list-group-item text-center" type="text reset" /> */}
 
               {store.citas && store.citas.length > 0 ? (
                 <>
@@ -73,10 +74,18 @@ const LCitas = (props) => {
               )}
             </ul>
           </div>
-          <p className="agregado">Citas canceladas {store.citas.length}</p>
         </div>
       </div>
     </>
+    ) : (
+      <div className="text-center mt-5">
+        <h1>Esta página es solo para los Administradores</h1>
+      </div>
+        )
+  ) : (
+    <div className="text-center mt-5">
+      <h1>Debes iniciar sesión para visualizar la página</h1>
+    </div>
   );
 };
 
