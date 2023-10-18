@@ -106,7 +106,7 @@ export const Citas = () => {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Cita creada exitósamente",
+          title: "Cita creada exitosamente",
           text:`Recuerde su cita el día ${inputDate.current.value} a las ${inputTime.current.value}`
         });
 

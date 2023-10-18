@@ -355,7 +355,6 @@ def create_tratamiento():
         descripcion=data['descripcion'],
         precio=data['precio'],
         especialista_id=data['especialista_id'],
-
     )
     db.session.add(nuevo_tratamiento)
     db.session.commit()
@@ -404,6 +403,7 @@ def create_cita():
         return jsonify({"message":"Prohibido"}) , 403 
     
     data = request.json
+
     nueva_cita = Citas(
         nombre_paciente= data['nombre'],
         fecha=data['fecha'],
@@ -436,8 +436,8 @@ def create_cita():
     
 
     try:
-        send_email(asunto, email_receptor, body)
         db.session.add(nueva_cita)
+        send_email(asunto, email_receptor, body)
         db.session.commit()
     except:
         return jsonify({'error': 'Problema al insertar cita'}), 400
@@ -446,7 +446,6 @@ def create_cita():
 
 @api.route('/citas/<int:id>', methods=['DELETE'])
 def eliminar_cita(id):
-
     cita = Citas.query.get(id)
     
     delete_cita = Citas.query.filter_by(id=id).first().serialize()
@@ -456,6 +455,7 @@ def eliminar_cita(id):
         return jsonify({'error': 'Cita no encontrada'}), 404
     
     email_receptor= paciente["email"]
+
     asunto = "Cancelación de cita"
     body = '''Estimad@'''+ delete_cita["nombre"]+''' se le informa la cancelación de la siguiente cita:
                 <p><b>Fecha de la cita:</b> ''' + delete_cita["fecha"] +'''</p>
